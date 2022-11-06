@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 const options = {
   content: [
-    "pages/**/*.{ts,tsx}",
-    "components/**/*.{ts,tsx}",
-    "styles/**/*.{ts,tsx}",
+    'pages/**/*.{ts,tsx}',
+    'components/**/*.{ts,tsx}',
+    'styles/**/*.{ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };
 
 module.exports = options;
