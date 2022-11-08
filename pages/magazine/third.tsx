@@ -10,5 +10,3 @@ const MagazineThird: NextPage = () => {
 };
 
 export default MagazineThird;
-
-

@@ -10,4 +10,3 @@ const MagazineFirst: NextPage = () => {
 };
 
 export default MagazineFirst;
-

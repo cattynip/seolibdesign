@@ -10,5 +10,3 @@ const MagazineFinal: NextPage = () => {
 };
 
 export default MagazineFinal;
-
-
