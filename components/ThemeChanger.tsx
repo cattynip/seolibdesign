@@ -20,8 +20,7 @@ const ThemeChanger = () => {
       _hover={{
         backgroundColor: useColorModeValue('orange.400', 'purple.500')
       }}
-      py={4}
-      px={2}
+      p={0}
     >
       {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
     </Button>

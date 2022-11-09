@@ -22,18 +22,19 @@ import { IoLogoGithub } from 'react-icons/io5';
 
 const Header = () => {
   return (
-    <Box position="fixed" as="nav" w="100%">
+    <Box position="fixed" top={3} px={2} as="nav" w="100%">
       <Container
         display="flex"
         py={2}
-        px={3}
+        px={5}
+        pr={8}
         width="100%"
         maxW="container.md"
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
-        bg="transparent"
-        blur={'lg'}
+        bg={useColorModeValue('#A0AEBF60', '#2B6CB060')}
+        css={{ backdropFilter: 'blur(6px)' }}
         borderRadius="full"
       >
         {
@@ -73,13 +74,12 @@ const Header = () => {
               <Menu isLazy>
                 <MenuButton
                   as={Button}
-                  py={4}
-                  px={2}
                   transition="all 0.2s"
                   bg={useColorModeValue('gray.300', 'white')}
                   textColor="black"
                   borderRadius="md"
-                  borderWidth="1px"
+                  borderWidth={1}
+                  p={0}
                   _hover={{
                     bg: '#435270',
                     textColor: 'white'
