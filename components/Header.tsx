@@ -19,15 +19,17 @@ import { HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import Logo from './Logo';
 import { IoLogoGithub } from 'react-icons/io5';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+  const router = useRouter();
   return (
-    <Box position="fixed" top={3} px={2} as="nav" w="100%">
+    <Box position="fixed" top={3} px={3} as="nav" w="100%">
       <Container
         display="flex"
-        py={2}
+        py="1.5"
         px={5}
-        pr={8}
+        pr={2.5}
         width="100%"
         maxW="container.md"
         flexWrap="wrap"
@@ -54,13 +56,22 @@ const Header = () => {
             mt={{ base: 5, md: 0 }}
             flexGrow={1}
           >
-            <LinkItem href="/" inHeader>
+            <LinkItem
+              href="/"
+              header={{ layoutId: 'headerLink', pathName: router.pathname }}
+            >
               Home
             </LinkItem>
-            <LinkItem href="/magazine" inHeader>
+            <LinkItem
+              href="/magazine"
+              header={{ layoutId: 'headerLink', pathName: router.pathname }}
+            >
               Magazine
             </LinkItem>
-            <LinkItem href="https://github.com/cattynip/seolibdesign" inHeader>
+            <LinkItem
+              href="https://github.com/cattynip/seolibdesign"
+              target="_blank"
+            >
               <IoLogoGithub />
               <Text ml={1.5}>Source</Text>
             </LinkItem>
@@ -70,14 +81,15 @@ const Header = () => {
           <Box display="flex">
             <ThemeChanger />
 
-            <Box display={{ base: 'inline', md: 'none' }} ml={15}>
+            <Box display={{ base: 'inline', md: 'none' }}>
               <Menu isLazy>
                 <MenuButton
                   as={Button}
                   transition="all 0.2s"
                   bg={useColorModeValue('gray.300', 'white')}
                   textColor="black"
-                  borderRadius="md"
+                  borderRightRadius="full"
+                  borderLeftRadius="none"
                   borderWidth={1}
                   p={0}
                   _hover={{
@@ -90,7 +102,9 @@ const Header = () => {
                   }}
                   _focus={{ boxShadow: 'outline' }}
                 >
-                  <HamburgerIcon />
+                  <Box pr={2}>
+                    <HamburgerIcon />
+                  </Box>
                 </MenuButton>
                 <MenuList bg={useColorModeValue('#fffff', 'blue.800')}>
                   <Link href={'/'}>

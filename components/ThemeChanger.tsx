@@ -1,5 +1,5 @@
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Button, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, useColorMode, useColorModeValue } from '@chakra-ui/react';
 
 const ThemeChanger = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -16,13 +16,17 @@ const ThemeChanger = () => {
       bg={bgColor}
       textColor="white"
       borderWidth={1}
-      borderRadius="md"
+      borderRadius="full"
+      borderRightRadius={{ base: 0, md: 'full' }}
+      width="10"
+      p={0}
       _hover={{
         backgroundColor: useColorModeValue('orange.400', 'purple.500')
       }}
-      p={0}
     >
-      {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+      <Box pl={{ base: 2, md: 0 }}>
+        {colorMode === 'light' ? <SunIcon w={4} /> : <MoonIcon w={4} />}
+      </Box>
     </Button>
   );
 };
