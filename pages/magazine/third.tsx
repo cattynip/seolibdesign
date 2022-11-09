@@ -1,12 +1,16 @@
 import { NextPage } from 'next';
+import { Heading, Text } from '@chakra-ui/react';
+import Layout from '@components/Layout';
 
-const MagazineThird: NextPage = () => {
+const Home: NextPage = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-      <p>This is the third magazine page.</p>
-    </div>
+    <Layout>
+      <Heading as={'h1'} size={'xl'}>
+        Hello World
+      </Heading>
+      <Text>This is the Third Magazine page.</Text>
+    </Layout>
   );
 };
 
-export default MagazineThird;
+export default Home;

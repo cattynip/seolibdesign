@@ -7,7 +7,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Header />
-      {/*<Component {...pageProps} />*/}
+      <Component {...pageProps} />
     </ChakraProvider>
   );
 }
