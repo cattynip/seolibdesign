@@ -8,7 +8,7 @@ const Home: NextPage = () => {
       <Heading as={'h1'} size={'xl'}>
         Hello World
       </Heading>
-      <Text>This is the Second Magazine page.</Text>
+      <Text>This is the Back page Magazine page.</Text>
     </Layout>
   );
 };
