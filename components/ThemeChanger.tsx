@@ -17,14 +17,14 @@ const ThemeChanger = () => {
       textColor="white"
       borderWidth={1}
       borderRadius="full"
-      borderRightRadius={{ base: 0, md: 'full' }}
+      borderRightRadius={{ base: 0, lg: 'full' }}
       width="10"
       p={0}
       _hover={{
         backgroundColor: useColorModeValue('orange.400', 'purple.500')
       }}
     >
-      <Box pl={{ base: 2, md: 0 }}>
+      <Box pl={{ base: 2, lg: 0 }}>
         {colorMode === 'light' ? <SunIcon w={4} /> : <MoonIcon w={4} />}
       </Box>
     </Button>
