@@ -1,17 +1,26 @@
-import DataObject, { TArea, TDataType } from '@data/data';
+import {
+  DataObjectBack,
+  DataObjectCover,
+  DataObjectMiddle,
+  IDataObjectKind,
+  TArea
+} from '@data/data';
 
 interface IDataManagement {
   area: TArea;
-  dataType?: TDataType;
 }
 
-function dataManagement({ area, dataType }: IDataManagement) {
+function dataManagement({
+  area
+}: IDataManagement): (IDataObjectKind | undefined)[] {
   if (area === 'all') {
-    return DataObject;
-  } else if (!dataType) {
-    return DataObject[area];
+    return [DataObjectCover, DataObjectMiddle, DataObjectBack];
   } else {
-    return DataObject[area][dataType];
+    return [
+      area === 'cover' ? DataObjectCover : undefined,
+      area === 'middle' ? DataObjectMiddle : undefined,
+      area === 'back' ? DataObjectBack : undefined
+    ];
   }
 }
 
