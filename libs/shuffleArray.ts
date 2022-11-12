@@ -1,5 +1,5 @@
 function shuffleArray<T>(array: T[]): T[] {
-  // Source from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  // Source from : https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   let currentIndex = array.length,
     randomIndex;
 
