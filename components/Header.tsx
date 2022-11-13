@@ -23,28 +23,27 @@ import { useRouter } from 'next/router';
 
 const Header = () => {
   const router = useRouter();
+
   return (
     <Box position="fixed" top={3} px={3} as="nav" w="100%" zIndex={100}>
       <Container
         display="flex"
-        py="1.5"
-        px={5}
-        pr={2.5}
+        py={1}
+        px={7}
+        pr={1}
         width="100%"
         maxW="container.lg"
+        height="auto"
         flexWrap="wrap"
         alignItems="center"
         justifyContent="space-between"
-        bg={useColorModeValue('#A0AEBF60', '#2B6CB060')}
-        css={{ backdropFilter: 'blur(6px)' }}
+        bg={useColorModeValue('#3a404760', '#52526160')}
+        css={{ backdropFilter: 'blur(10px)' }}
         borderRadius="full"
+        textColor={useColorModeValue('black', 'white')}
       >
-        {
-          /* This code will be filled if I create the logo. */
-          // <Flex></Flex>
-        }
         <Flex width="container.lg">
-          <Heading alignSelf="center">
+          <Heading alignSelf="center" textColor={'unset'}>
             <Logo />
           </Heading>
 
