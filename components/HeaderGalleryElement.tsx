@@ -1,13 +1,12 @@
 import { Img, Stack } from '@chakra-ui/react';
 import {
+  ImageHeight,
   ImageNumberPerWidth,
-  ImageRatio,
   ImageWidth,
   ScreenWidth
 } from '@libs/imageUrl';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import useWidth from './useWidth';
 
 interface IHeaderGalleryElement {
   urls: string[];
@@ -16,7 +15,6 @@ interface IHeaderGalleryElement {
 
 const HeaderGalleryElement = ({ urls, isExtra }: IHeaderGalleryElement) => {
   const [imageWidth] = useState<number>(ScreenWidth / ImageNumberPerWidth);
-  const [imageHeight] = useState<number>(ImageWidth * ImageRatio);
   const [speed] = useState<number>(12);
 
   return (
@@ -25,7 +23,7 @@ const HeaderGalleryElement = ({ urls, isExtra }: IHeaderGalleryElement) => {
         bg={isExtra ? 'yellow' : 'blue'}
         as={motion.div}
         width={ScreenWidth}
-        height={imageHeight}
+        height={ImageHeight}
         display="flex"
         flexDir="row"
         experimental_spaceY={0}
@@ -44,7 +42,7 @@ const HeaderGalleryElement = ({ urls, isExtra }: IHeaderGalleryElement) => {
           <Img
             key={index}
             width={imageWidth}
-            height={imageHeight}
+            height={ImageHeight}
             src={url}
             alt="Image"
           />

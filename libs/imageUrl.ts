@@ -5,7 +5,6 @@ const ImageExtension = '.jpeg';
 const AllImageType: TImageType[] = ['cover', 'middle', 'back'];
 
 const ImageUrls: string[] = fillImageUrls([]);
-const OnImageUrls: string[] = [];
 const StaticImageUrls: string[] = fillImageUrls([]);
 
 export const ImageWidth = 180;
