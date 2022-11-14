@@ -23,11 +23,14 @@ export interface IData {
 
 export interface IDataObjectKind extends IData {
   kind: TArea;
+  name: string;
 }
 
 export const DataObjectCover: IDataObjectKind = {
   kind: 'cover',
-  description: 'This section is about the Cover Page of the magazine. ',
+  name: 'Cover Page',
+  description:
+    'This section is about the Cover Page of the magazine. The cover page has just one page. Because people can see this part at the first time befor reading them, it is pretty important to hook them and this is also why many cover page of magazines in the market are exaggerated.',
   initial:
     'When I was creating the 3 initial drafts first, I created structure and added the elements, watching the other magazines from the platforms that I can be inspired such as Google, Pinterest and etc. Because I did not know how to create the design of the magazine properly and what I should make these drafts based on. I created 3 initial drafts, focusing on the part of title  "INTERACTING". And all of the magazine drafts, there is the same cover picture of a family eating a meal together which the client wanted. In the first one, I added the word "INTERACTING" with the orange line. This word will be extra bold with max text size. On the line, I added the small word "FAMILY". This word will be a little bit thin in text size. The reason that I added the difference in text size of the parts of the title is that I judged that the word "INTERACTING" is more important than "FAMILY"  In the second one, I added a shadow under the title for making the audience see the titles and pictures individually. All of the texts are white, and the word "INTERACTING" is extra bold with max text size. And the word "FAMILY" is middle text size and a little bit thin. The two orange lines are between the titles and below the title. The first time, I did not add the line, but it become cooler after adding the lines. In the third one, I added a box on the top with the word "FAMILY" and a shadow box on the bottom with the word "INTERACTING" like the previous draft. The shadow box has a gradient shadow from black to transparent(the direction is from bottom to top).',
   intermediate:
@@ -38,7 +41,9 @@ export const DataObjectCover: IDataObjectKind = {
 
 export const DataObjectMiddle: IDataObjectKind = {
   kind: 'middle',
-  description: '',
+  name: 'Middle Pages',
+  description:
+    'This section is about the Middle Page of the magazine. In the middle part, it is treating what the reporter, writer and creator want to convey. They usually convey using many texts and well-organized paragraphs, sometimes pictures and photographs which are good tools to convey and make the reader keep reading this magazine.',
   initial:
     'These are the 3 initial drafts. I added elements, and structures in the middle pages and organized them suitably, thinking about how I should add these things in the middle pages and how the reader can read this magazine more easily. And, I merged the 2 sections, "How to have more interact" and "How to void fight". Because there were treating about similar and there is a small place to treat all of them in the middle page. But, the mount of the content will not be changed. I separated each section for organizing and filling the texts and pictures half and half. I added 1 image for each section. In the first one, I added a universal part of a magazine. And I added the title "FAMILY INTERACTING" in the first of the middle pages. In the second one, I added separated titles on both sides of the middle pages. And I changed from the check box for each section to the number of the list of sections. And I moved the title of the fourth section from right to left, but my client explained me that is bad. In the last one, I maintain all of the organization and just added `abstract` part at the under of the title which is placed at left.',
   intermediate:
@@ -49,7 +54,9 @@ export const DataObjectMiddle: IDataObjectKind = {
 
 export const DataObjectBack: IDataObjectKind = {
   kind: 'back',
-  description: '',
+  name: 'Back Page',
+  description:
+    'This section is about the Back Page of the magazine. As much as it is end part and the readers can read this part at the end of reading, it usually contains conclusion or resources of the whole magazine. Since it contains conclusions and has chance to hook them, it is as important as the cover page.',
   initial:
     'These are the 3 initial drafts. Overall, I added Sources that this magazine used in all of the 3 initial drafts. Because I thought that the best place that Sources are is the Back pages. In the first one, I created it same as the one of the drafts about the Cover page. As you can see drafts on the Cover page, I added Shadows in the titles, and image with full-size. And in the bottom, I added Sources of Paragraphs and Images that this magazine used. In the second one, I developed the Conclusion box in the middle of the Back page. One thing that I regret about is I did not develop the title like "Conclusion". If I added the title, it will be more easy to watch. In the Conclusion box, there will be filled with the contents that the author(maybe or the client) want to convey or could not convey in the middle pages. In the third one, I developed a different way to conclude. It is like a Chatting Application, this section is treating about the topics that this magazine treated by chatting the reader and someone. Considering the readers that the client expected are young, I believe that this decision was good.',
   intermediate:
