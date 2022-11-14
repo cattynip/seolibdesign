@@ -13,7 +13,6 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import LinkItem from './LinkItem';
 import ThemeChanger from './ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
@@ -68,7 +67,7 @@ const Header = () => {
               header={{ layoutId: 'headerLink', pathName: router.pathname }}
             >
               <IoNewspaper />
-              <Text ml={1.5}>Magazine</Text>
+              <Text ml={1.5}>Magazine Project</Text>
             </HeaderLinkItem>
             <HeaderLinkItem
               href="https://github.com/cattynip/seolibdesign"
@@ -118,7 +117,7 @@ const Header = () => {
                   <Link href="/magazine">
                     <MenuItem>
                       <IoNewspaper />
-                      <Text ml={1.5}>Magazine</Text>
+                      <Text ml={1.5}>Magazine Project</Text>
                     </MenuItem>
                   </Link>
                   <Link href="https://github.com/cattynip/seolibdesign">

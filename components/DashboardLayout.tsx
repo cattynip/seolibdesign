@@ -29,7 +29,7 @@ const DashboardLayout = ({
 
   return (
     <Box m={0} width="100%">
-      <Container p={0} position="relative">
+      <Container maxW="container.lg" width="100%" px={8}>
         <HeaderGallery />
         <Flex
           bottom={10}
@@ -41,7 +41,7 @@ const DashboardLayout = ({
         >
           <Heading
             as="h1"
-            size="4xl"
+            size={{ md: '4xl', sm: '3xl' }}
             textColor={titleColor}
             textAlign="center"
             width="container.md"
@@ -63,7 +63,7 @@ const DashboardLayout = ({
           </Text>
         </Flex>
       </Container>
-      <Container maxW="container.lg" width="100%">
+      <Container maxW="container.lg" width="100%" px={8}>
         <Stack
           display="flex"
           alignItems="center"

@@ -41,7 +41,7 @@ const ProjectCard = ({
           height={250}
           display={{ md: 'block', sm: 'none' }}
         />
-        <Container p={4}>
+        <Container p={4} experimental_spaceY={2}>
           <Heading as="h2">{title}</Heading>
           <Text>{description}</Text>
         </Container>
