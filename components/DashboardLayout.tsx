@@ -3,9 +3,9 @@ import {
   Container,
   Heading,
   Stack,
-  Text,
   Flex,
-  useColorModeValue
+  useColorModeValue,
+  Text
 } from '@chakra-ui/react';
 import React from 'react';
 import HeaderGallery from './HeaderGallery';
@@ -24,9 +24,12 @@ const DashboardLayout = ({
   projects
 }: IDashboardLayout) => {
   const titleColor = useColorModeValue('black', 'white');
+  const descriptionColor = useColorModeValue('gray.600', 'whiteAlpha.700');
+  const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
+
   return (
     <Box m={0} width="100%">
-      <Container p={0} minW="100%" position="relative">
+      <Container p={0} position="relative">
         <HeaderGallery />
         <Flex
           bottom={10}
@@ -39,15 +42,25 @@ const DashboardLayout = ({
           <Heading
             as="h1"
             size="4xl"
-            textAlign="center"
             textColor={titleColor}
+            textAlign="center"
             width="container.md"
+            maxW="100%"
             mx="auto"
-            pb={2}
+            cursor="default"
+            pb={4}
           >
             {title}
           </Heading>
-          <Text textAlign="center">{description}</Text>
+          <Text
+            textColor={descriptionColor}
+            textAlign="center"
+            transitionDuration="500ms"
+            cursor="default"
+            _hover={{ textColor: descriptionHoverColor }}
+          >
+            {description}
+          </Text>
         </Flex>
       </Container>
       <Container maxW="container.lg" width="100%">
@@ -55,7 +68,7 @@ const DashboardLayout = ({
           display="flex"
           alignItems="center"
           justifyContent="start"
-          experimental_spaceY={5}
+          experimental_spaceY={10}
         >
           {projects.map(project => (
             <ProjectCard key={project.title} {...project} />
