@@ -15,14 +15,9 @@ interface INavigationElement {
   children: React.ReactNode;
 }
 
-const LinkItem = ({
-  href,
-  target = '_self',
-  header,
-  children,
-  ...props
-}: INavigationElement) => {
+const HeaderLinkItem = ({ href, header, children }: INavigationElement) => {
   const boxBgColor = useColorModeValue('orange.400', 'purple.500');
+
   return (
     <Box display="flex" alignItems="center" position="relative">
       {href === header?.pathName && header ? (
@@ -44,8 +39,9 @@ const LinkItem = ({
           alignItems="center"
           justifyContent="center"
           textColor={href === header?.pathName ? 'white' : ''}
-          py={header ? 2 : 0}
-          px={header ? 2.5 : 0}
+          style={{ textDecoration: 'none' }}
+          py={2}
+          px={2.5}
         >
           {children}
         </Link>
@@ -54,4 +50,4 @@ const LinkItem = ({
   );
 };
 
-export default LinkItem;
+export default HeaderLinkItem;

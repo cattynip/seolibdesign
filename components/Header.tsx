@@ -20,6 +20,7 @@ import Link from 'next/link';
 import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
 import { useRouter } from 'next/router';
+import HeaderLinkItem from './HeaderLinkItem';
 
 const Header = () => {
   const router = useRouter();
@@ -55,27 +56,27 @@ const Header = () => {
             mt={{ base: 5, lg: 0 }}
             flexGrow={1}
           >
-            <LinkItem
+            <HeaderLinkItem
               href="/"
               header={{ layoutId: 'headerLink', pathName: router.pathname }}
             >
               <IoHome />
               <Text ml={1.5}>Home</Text>
-            </LinkItem>
-            <LinkItem
+            </HeaderLinkItem>
+            <HeaderLinkItem
               href="/magazine"
               header={{ layoutId: 'headerLink', pathName: router.pathname }}
             >
               <IoNewspaper />
               <Text ml={1.5}>Magazine</Text>
-            </LinkItem>
-            <LinkItem
+            </HeaderLinkItem>
+            <HeaderLinkItem
               href="https://github.com/cattynip/seolibdesign"
               target="_blank"
             >
               <IoLogoGithub />
               <Text ml={1.5}>Source</Text>
-            </LinkItem>
+            </HeaderLinkItem>
           </Stack>
 
           <Spacer />
