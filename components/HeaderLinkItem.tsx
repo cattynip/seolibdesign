@@ -42,6 +42,7 @@ const HeaderLinkItem = ({ href, header, children }: INavigationElement) => {
           style={{ textDecoration: 'none' }}
           py={2}
           px={2.5}
+          transition="color .8s ease"
         >
           {children}
         </Link>
