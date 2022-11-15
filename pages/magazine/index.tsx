@@ -9,7 +9,6 @@ const Home: NextPage = () => {
 
   projectData.map(value => {
     if (!value) return;
-
     projectDatas.push({
       title: value.name,
       description: value.description,
