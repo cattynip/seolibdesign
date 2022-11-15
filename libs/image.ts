@@ -1,26 +1,21 @@
-import shuffleArray from './shuffleArray';
+import { shuffleArray } from './math';
 
 type TImageType = 'cover' | 'middle' | 'back';
 const ImageExtension = '.jpeg';
 const AllImageType: TImageType[] = ['cover', 'middle', 'back'];
 
-const ImageUrls: string[] = fillImageUrls([]);
+const FlexibleImageUrls: string[] = fillImageUrls([]);
 const StaticImageUrls: string[] = fillImageUrls([]);
 
-export const ImageWidth = 180;
-export const ImageHeight = 250;
-export let ScreenWidth = 2000;
-export let ImageNumberPerWidth = ScreenWidth / ImageWidth;
+export const GalleryEffectHeight = 240;
 
-export function screenWidthChanger(value: number): void {
-  ScreenWidth = value;
-  ImageNumberPerWidth = Math.floor(value / ImageWidth);
-}
+export const MaximumElementWidth = 100;
+export const MinimumElementWidth = 50;
 
 export function getImageMore(howMany?: number): string[] {
-  if (!howMany) howMany = ImageNumberPerWidth;
-  shuffleArray(ImageUrls);
-  const returnArray = ImageUrls.slice(0, howMany);
+  if (!howMany) howMany = 10;
+  shuffleArray(FlexibleImageUrls);
+  const returnArray = FlexibleImageUrls.slice(0, howMany);
   return returnArray;
 }
 
