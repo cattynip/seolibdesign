@@ -55,22 +55,17 @@ const Header = () => {
             mt={{ base: 5, md: 0 }}
             flexGrow={1}
           >
-            <HeaderLinkItem
-              href="/"
-              header={{ layoutId: 'headerLink', pathName: router.pathname }}
-            >
+            <HeaderLinkItem href="/" pathName={router.pathname}>
               <IoHome />
               <Text ml={1.5}>Home</Text>
             </HeaderLinkItem>
-            <HeaderLinkItem
-              href="/magazine"
-              header={{ layoutId: 'headerLink', pathName: router.pathname }}
-            >
+            <HeaderLinkItem href="/magazine" pathName={router.pathname}>
               <IoNewspaper />
               <Text ml={1.5}>Magazine Project</Text>
             </HeaderLinkItem>
             <HeaderLinkItem
               href="https://github.com/cattynip/seolibdesign"
+              pathName={router.pathname}
               target="_blank"
             >
               <IoLogoGithub />
