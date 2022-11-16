@@ -32,7 +32,7 @@ const Header = () => {
         px={7}
         pr={1}
         width="100%"
-        maxW="container.lg"
+        maxW="container.md"
         height="auto"
         flexWrap="wrap"
         alignItems="center"
@@ -48,11 +48,11 @@ const Header = () => {
           </Heading>
 
           <Stack
-            direction={{ base: 'column', lg: 'row' }}
-            display={{ base: 'none', lg: 'flex' }}
-            width={{ base: 'full', lg: 'auto' }}
+            direction={{ base: 'column', md: 'row' }}
+            display={{ base: 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
             alignItems="center"
-            mt={{ base: 5, lg: 0 }}
+            mt={{ base: 5, md: 0 }}
             flexGrow={1}
           >
             <HeaderLinkItem
@@ -82,23 +82,23 @@ const Header = () => {
           <Box display="flex">
             <ThemeChanger />
 
-            <Box display={{ base: 'inline', lg: 'none' }}>
+            <Box display={{ base: 'inline', md: 'none' }}>
               <Menu isLazy>
                 <MenuButton
                   as={Button}
                   transition="all 0.2s"
-                  bg={useColorModeValue('#bfbfbf', '#435270')}
+                  bg={useColorModeValue('#bfbfbf', 'blackAlpha.50')}
                   textColor={useColorModeValue('black', 'white')}
                   borderRightRadius="full"
                   borderLeftRadius="none"
                   borderWidth={1}
                   p={0}
                   _hover={{
-                    bg: useColorModeValue('gray.300', 'blue.700'),
+                    bg: useColorModeValue('gray.300', 'blackAlpha.500'),
                     textColor: useColorModeValue('black', 'white')
                   }}
                   _expanded={{
-                    bg: useColorModeValue('gray.300', 'blue.700'),
+                    bg: useColorModeValue('gray.300', 'blackAlpha.500'),
                     textColor: useColorModeValue('black', 'white')
                   }}
                   _focus={{ boxShadow: 'outline' }}
@@ -107,7 +107,7 @@ const Header = () => {
                     <HamburgerIcon />
                   </Box>
                 </MenuButton>
-                <MenuList bg={useColorModeValue('gray.300', 'blue.700')}>
+                <MenuList bg={useColorModeValue('gray.300', 'blackAlpha.800')}>
                   <Link href={'/'}>
                     <MenuItem>
                       <IoHome />

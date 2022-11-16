@@ -8,7 +8,7 @@ import {
   Text
 } from '@chakra-ui/react';
 import React from 'react';
-import HeaderGallery from './HeaderGallery';
+import Layout from './Layout';
 import ProjectCard, { IProjectCard } from './ProjectCard';
 
 interface IDashboardLayout {
@@ -28,24 +28,20 @@ const DashboardLayout = ({
   const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
 
   return (
-    <Box m={0} width="100%">
-      <Container maxW="container.lg" width="100%" px={8}>
-        <HeaderGallery />
+    <Layout>
+      <Box>
+        {/* <HeaderGallery /> */}
         <Flex
-          bottom={10}
-          width="100%"
+          py={10}
           flexDir={'column'}
           alignItems="center"
           justifyContent="center"
-          position="relative"
         >
           <Heading
             as="h1"
             size={{ md: '4xl', sm: '3xl' }}
             textColor={titleColor}
             textAlign="center"
-            width="container.md"
-            maxW="100%"
             mx="auto"
             cursor="default"
             pb={4}
@@ -53,6 +49,8 @@ const DashboardLayout = ({
             {title}
           </Heading>
           <Text
+            width="100%"
+            maxW="container.sm"
             textColor={descriptionColor}
             textAlign="center"
             transitionDuration="500ms"
@@ -62,8 +60,8 @@ const DashboardLayout = ({
             {description}
           </Text>
         </Flex>
-      </Container>
-      <Container maxW="container.lg" width="100%" px={8}>
+      </Box>
+      <Box>
         <Stack
           display="flex"
           alignItems="center"
@@ -74,8 +72,8 @@ const DashboardLayout = ({
             <ProjectCard key={project.title} {...project} />
           ))}
         </Stack>
-      </Container>
-    </Box>
+      </Box>
+    </Layout>
   );
 };
 

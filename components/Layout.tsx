@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Container } from '@chakra-ui/react';
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -6,9 +6,9 @@ interface ILayoutProps {
 
 const Layout = ({ children }: ILayoutProps) => {
   return (
-    <Box width="100%" maxW="container.md" mx="auto" pt={20}>
+    <Container width="100%" maxW="container.md" pt={20}>
       {children}
-    </Box>
+    </Container>
   );
 };
 

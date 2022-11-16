@@ -28,7 +28,8 @@ const componenets: ThemeComponents = {
 };
 
 const fonts = {
-  heading: 'Lato'
+  heading: 'Lato',
+  body: 'Lato'
 };
 
 const themeConfig: ThemeConfig = {

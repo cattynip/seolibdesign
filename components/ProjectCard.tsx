@@ -28,7 +28,7 @@ const ProjectCard = ({
   return (
     <Link
       href={linkTo}
-      width={{ md: 'container.md', sm: '100%' }}
+      width={{ md: 'container.sm', sm: '100%' }}
       bg={boxBgColor}
       textColor={textColor}
       borderRadius="lg"
