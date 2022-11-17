@@ -42,7 +42,7 @@ const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          textColor={href === pathName ? 'white' : ''}
+          textColor={isMatched ? 'white' : ''}
           style={{ textDecoration: 'none' }}
           py={2}
           px={2.5}
