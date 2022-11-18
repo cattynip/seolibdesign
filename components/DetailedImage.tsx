@@ -1,4 +1,5 @@
 import { Box, Img, Stack } from '@chakra-ui/react';
+import ExpandableImage from './ExpandableImage';
 
 interface IDetailedImage {
   imageData: string[];
@@ -11,9 +12,8 @@ const DetailedImage = ({ imageData }: IDetailedImage) => {
   return (
     <Box>
       {imageData.length === 1 ? (
-        <Img
-          src={imageData[0]}
-          alt={imageData[0]}
+        <ExpandableImage
+          url={imageData[0]}
           width={ImageWidth}
           height={ImageHeight}
         />
