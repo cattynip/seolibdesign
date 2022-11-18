@@ -2,12 +2,12 @@ import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react';
 import { TDataType } from '@data/data';
 import DetailedImage from './DetailedImage';
 
-interface IDetailedStep {
+interface IDetailedTree {
   stageType: TDataType;
   images: string[];
 }
 
-const DetailedStep = ({ stageType, images }: IDetailedStep) => {
+const DetailedTree = ({ stageType, images }: IDetailedTree) => {
   return (
     <Box
       display={'flex'}
@@ -46,4 +46,4 @@ const DetailedStep = ({ stageType, images }: IDetailedStep) => {
   );
 };
 
-export default DetailedStep;
+export default DetailedTree;
