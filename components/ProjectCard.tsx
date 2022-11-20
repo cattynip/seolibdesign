@@ -9,6 +9,7 @@ import {
   Flex
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import ExpandableImage from './ExpandableImage';
 
 export interface IProjectCard {
   title: string;
@@ -36,11 +37,12 @@ const ProjectCard = ({
         style={{ textDecoration: 'none' }}
       >
         <Box as={Flex}>
-          <Img
-            src={imageUrl}
-            borderLeftRadius="lg"
+          <ExpandableImage
+            url={imageUrl}
             height={250}
+            alt="Project Image"
             display={{ md: 'block', sm: 'none' }}
+            borderLeftRadius="lg"
           />
           <Container p={4} experimental_spaceY={2}>
             <Heading as="h2">{title}</Heading>

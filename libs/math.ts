@@ -66,8 +66,6 @@ export function compareRouter({
 }
 
 export function getDifference<T>(first: T[], second: T[]): T[] {
-  const returnArray = 0;
-
   return first.filter(element => {
     return second.includes(element);
   });

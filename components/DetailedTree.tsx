@@ -14,7 +14,7 @@ const DetailedTree = ({ stageType, images }: IDetailedTree) => {
       flexDir="column"
       alignItems="center"
       justifyContent="center"
-      pb={3}
+      pb={8}
     >
       <Container>
         <Heading
