@@ -5,7 +5,8 @@ import {
   Stack,
   Flex,
   useColorModeValue,
-  Text
+  Text,
+  Divider
 } from '@chakra-ui/react';
 import React from 'react';
 import Layout from './Layout';
@@ -69,7 +70,17 @@ const DashboardLayout = ({
           experimental_spaceY={10}
         >
           {projects.map(project => (
-            <ProjectCard key={project.title} {...project} />
+            <Box
+              key={project.title}
+              display="flex"
+              flexDir="column"
+              alignItems="center"
+              justifyContent="start"
+              experimental_spaceY={10}
+            >
+              <ProjectCard {...project} />
+              <Divider />
+            </Box>
           ))}
         </Stack>
       </Box>
