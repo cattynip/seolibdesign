@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <Box mt={10} py={5} bgColor={bgColor} textAlign="center">
-      &copy; {new Date().getFullYear()} Seol SO. Al Rights Reserved.
+      &copy; {new Date().getFullYear()} Seol SO. All Rights Reserved.
     </Box>
   );
 };
