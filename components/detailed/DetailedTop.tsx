@@ -1,6 +1,6 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { TArea } from '@data/data';
-import ExpandableImage from './ExpandableImage';
+import ExpandableImage from '@components/ExpandableImage';
 
 interface IDetailedTop {
   area: TArea | string;

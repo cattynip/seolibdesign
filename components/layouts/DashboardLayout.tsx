@@ -9,8 +9,8 @@ import {
   Divider
 } from '@chakra-ui/react';
 import React from 'react';
-import Layout from './Layout';
-import ProjectCard, { IProjectCard } from './ProjectCard';
+import Layout from '@components/layouts/Layout';
+import ProjectCard, { IProjectCard } from '@components/ProjectCard';
 
 interface IDashboardLayout {
   title: string;
@@ -29,7 +29,7 @@ const DashboardLayout = ({
   const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
 
   return (
-    <Layout>
+    <>
       <Box>
         {/* <HeaderGallery /> */}
         <Flex
@@ -84,7 +84,7 @@ const DashboardLayout = ({
           ))}
         </Stack>
       </Box>
-    </Layout>
+    </>
   );
 };
 

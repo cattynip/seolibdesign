@@ -1,5 +1,5 @@
 import { Box, Img, Stack } from '@chakra-ui/react';
-import ExpandableImage from './ExpandableImage';
+import ExpandableImage from '@components/ExpandableImage';
 
 interface IDetailedImage {
   imageData: string[];

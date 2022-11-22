@@ -6,13 +6,12 @@ class SpecialDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head>
-          <body>
-            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <Main />
-            <NextScript />
-          </body>
-        </Head>
+        <Head />
+        <body>
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }

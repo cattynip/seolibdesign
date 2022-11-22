@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import DashboardLayout from '@components/DashboardLayout';
+import DashboardLayout from '@components/layouts/DashboardLayout';
 import dataManagement from '@libs/dataManagement';
 import { IProjectCard } from '@components/ProjectCard';
 

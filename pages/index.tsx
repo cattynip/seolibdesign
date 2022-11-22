@@ -1,15 +1,14 @@
 import { NextPage } from 'next';
-import { Heading, Text } from '@chakra-ui/react';
-import Layout from '@components/Layout';
+import { Box, Heading, Text } from '@chakra-ui/react';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <Box>
       <Heading as={'h1'} size={'xl'}>
         Hello World
       </Heading>
       <Text>This is the Home page.</Text>
-    </Layout>
+    </Box>
   );
 };
 

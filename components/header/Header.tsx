@@ -8,72 +8,81 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Spacer,
   Stack,
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import ThemeChanger from './ThemeChanger';
+import ThemeChanger from '@components/ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
+import MainButton from './MainButton';
+import { splitIntoArray } from '@libs/math';
 
 const Header = () => {
   const router = useRouter();
+  const pathNameArr = splitIntoArray(router.pathname, '/');
 
   return (
-    <Box position="fixed" top={3} px={3} as="nav" w="100%" zIndex={100}>
-      <Container
-        display="flex"
-        py={1}
-        px={7}
-        pr={1}
-        width="100%"
-        maxW="container.md"
-        height="auto"
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="space-between"
-        bg={useColorModeValue('#3a404760', '#52526160')}
-        css={{ backdropFilter: 'blur(10px)' }}
-        borderRadius="full"
-        textColor={useColorModeValue('black', 'white')}
-      >
-        <Flex width="container.lg">
-          <Heading alignSelf="center" textColor={'unset'}>
-            <Logo />
-          </Heading>
+    <>
+      <Box position="fixed" top={3} px={3} as="nav" w="100%" zIndex={100}>
+        <Container
+          py={1}
+          pl={8}
+          pr={1}
+          width="100%"
+          maxW="container.md"
+          height="auto"
+          flexWrap="wrap"
+          bg={useColorModeValue('#3a404760', '#52526160')}
+          css={{ backdropFilter: 'blur(10px)' }}
+          borderRadius="full"
+          textColor={useColorModeValue('black', 'white')}
+          display="flex"
+          flexDir="row"
+          justifyContent="space-between"
+        >
+          {pathNameArr.length >= 3 ? (
+            <MainButton root={`/${pathNameArr[1]}`} />
+          ) : null}
 
-          <Stack
-            direction={{ base: 'column', md: 'row' }}
-            display={{ base: 'none', md: 'flex' }}
-            width={{ base: 'full', md: 'auto' }}
-            alignItems="center"
-            mt={{ base: 5, md: 0 }}
-            flexGrow={1}
-          >
-            <HeaderLinkItem href="/" pathName={router.pathname}>
-              <IoHome />
-              <Text ml={1.5}>Home</Text>
-            </HeaderLinkItem>
-            <HeaderLinkItem href="/magazine" pathName={router.pathname}>
-              <IoNewspaper />
-              <Text ml={1.5}>Magazine Project</Text>
-            </HeaderLinkItem>
-            <HeaderLinkItem
-              href="https://github.com/cattynip/seolibdesign"
-              pathName={router.pathname}
-              target="_blank"
-            >
-              <IoLogoGithub />
-              <Text ml={1.5}>Source</Text>
-            </HeaderLinkItem>
-          </Stack>
+          <Flex display="flex" flexDir="row" alignItems="center">
+            <Container display="flex" flexDir={'row'}>
+              <Heading alignSelf="center" textColor={'unset'}>
+                <Logo />
+              </Heading>
 
-          <Spacer />
+              <Stack
+                display={{ base: 'none', md: 'flex' }}
+                width={{ base: 'full', md: 'auto' }}
+                alignItems="center"
+                mt={{ base: 5, md: 0 }}
+                flexGrow={1}
+                direction={{ base: 'column', md: 'row' }}
+              >
+                <HeaderLinkItem href="/" pathName={router.pathname}>
+                  <IoHome />
+                  <Text ml={1.5}>Home</Text>
+                </HeaderLinkItem>
+                <HeaderLinkItem href="/magazine" pathName={router.pathname}>
+                  <IoNewspaper />
+                  <Text ml={1.5}>Magazine Project</Text>
+                </HeaderLinkItem>
+                <HeaderLinkItem
+                  href="https://github.com/cattynip/seolibdesign"
+                  pathName={router.pathname}
+                  target="_blank"
+                >
+                  <IoLogoGithub />
+                  <Text ml={1.5}>Source</Text>
+                </HeaderLinkItem>
+              </Stack>
+            </Container>
+          </Flex>
+
           <Box display="flex">
             <ThemeChanger />
 
@@ -125,9 +134,10 @@ const Header = () => {
               </Menu>
             </Box>
           </Box>
-        </Flex>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+      <Box height="20" />
+    </>
   );
 };
 
