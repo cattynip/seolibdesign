@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Heading,
   Stack,
   Flex,
@@ -9,8 +8,8 @@ import {
   Divider
 } from '@chakra-ui/react';
 import React from 'react';
-import Layout from '@components/layouts/Layout';
 import ProjectCard, { IProjectCard } from '@components/ProjectCard';
+import Section from '@components/Section';
 
 interface IDashboardLayout {
   title: string;
@@ -69,9 +68,10 @@ const DashboardLayout = ({
           justifyContent="start"
           experimental_spaceY={10}
         >
-          {projects.map(project => (
-            <Box
+          {projects.map((project, idx) => (
+            <Section
               key={project.title}
+              delay={idx / 3}
               display="flex"
               flexDir="column"
               alignItems="center"
@@ -80,7 +80,7 @@ const DashboardLayout = ({
             >
               <ProjectCard {...project} />
               <Divider />
-            </Box>
+            </Section>
           ))}
         </Stack>
       </Box>
