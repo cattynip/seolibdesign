@@ -19,7 +19,7 @@ const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
   if (href === pathName) {
     isMatched = true;
   } else {
-    isMatched = compareRouter({ first: href, second: pathName });
+    isMatched = Boolean(compareRouter({ first: href, second: pathName }));
   }
 
   return (

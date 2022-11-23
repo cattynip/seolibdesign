@@ -14,7 +14,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <AnimatePresence
-        exitBeforeEnter
+        mode="wait"
         initial={true}
         onExitComplete={() => {
           if (typeof window !== 'undefined') {

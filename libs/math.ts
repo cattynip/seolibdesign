@@ -74,10 +74,15 @@ export function getDifference<T>(first: T[], second: T[]): T[] {
 export function splitIntoArray(
   strings: string,
   standard: string,
-  filterFunction: (value: string) => boolean
+  filterFunction?: (value: string) => boolean
 ): string[] {
-  const splitedArr = strings.split(standard).filter(filterFunction);
-  return splitedArr;
+  const splitedArr = strings.split(standard);
+
+  if (filterFunction) {
+    return splitedArr.filter(filterFunction);
+  } else {
+    return splitedArr;
+  }
 }
 
 export function shuffleArray<T>(array: T[]): T[] {

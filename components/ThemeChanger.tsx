@@ -18,7 +18,8 @@ const ThemeChanger = () => {
       borderWidth={1}
       borderRadius="full"
       borderRightRadius={{ base: 0, md: 'full' }}
-      width="10"
+      height={10}
+      width={10}
       p={0}
       _hover={{
         backgroundColor: useColorModeValue('orange.400', 'purple.500')

@@ -1,6 +1,7 @@
 import { Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import Header from '@components/header/Header';
+import { motion } from 'framer-motion';
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -23,7 +24,15 @@ const Layout = ({ children }: ILayoutProps) => {
 
       <Header />
 
-      <Container maxW="container.md">{children}</Container>
+      <Container maxW="container.md">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {children}
+        </motion.div>
+      </Container>
     </Box>
   );
 };

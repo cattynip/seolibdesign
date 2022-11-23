@@ -19,20 +19,17 @@ import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
-import MainButton from './MainButton';
-import { splitIntoArray } from '@libs/math';
 
 const Header = () => {
   const router = useRouter();
-  const pathNameArr = splitIntoArray(router.pathname, '/');
 
   return (
     <>
       <Box position="fixed" top={3} px={3} as="nav" w="100%" zIndex={100}>
         <Container
           py={1}
-          pl={8}
           pr={1}
+          pl={1}
           width="100%"
           maxW="container.md"
           height="auto"
@@ -45,13 +42,14 @@ const Header = () => {
           flexDir="row"
           justifyContent="space-between"
         >
-          {pathNameArr.length >= 3 ? (
-            <MainButton root={`/${pathNameArr[1]}`} />
-          ) : null}
-
-          <Flex display="flex" flexDir="row" alignItems="center">
+          <Flex
+            display="flex"
+            flexDir="row"
+            alignItems="center"
+            position={'relative'}
+          >
             <Container display="flex" flexDir={'row'}>
-              <Heading alignSelf="center" textColor={'unset'}>
+              <Heading alignSelf="center">
                 <Logo />
               </Heading>
 
