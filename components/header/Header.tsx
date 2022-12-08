@@ -19,6 +19,7 @@ import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
+import Anchor from '@components/Anchor';
 
 const Header = () => {
   const router = useRouter();
@@ -110,24 +111,24 @@ const Header = () => {
                   </Box>
                 </MenuButton>
                 <MenuList bg={useColorModeValue('gray.300', 'blackAlpha.800')}>
-                  <Link href={'/'}>
+                  <Anchor href={'/'}>
                     <MenuItem>
                       <IoHome />
                       <Text ml={1.5}>Home</Text>
                     </MenuItem>
-                  </Link>
-                  <Link href="/magazine">
+                  </Anchor>
+                  <Anchor href="/magazine">
                     <MenuItem>
                       <IoNewspaper />
                       <Text ml={1.5}>Magazine Project</Text>
                     </MenuItem>
-                  </Link>
-                  <Link href="https://github.com/cattynip/seolibdesign">
+                  </Anchor>
+                  <Anchor href="https://github.com/cattynip/seolibdesign">
                     <MenuItem>
                       <IoLogoGithub />
                       <Text ml={1.5}>Source</Text>
                     </MenuItem>
-                  </Link>
+                  </Anchor>
                 </MenuList>
               </Menu>
             </Box>

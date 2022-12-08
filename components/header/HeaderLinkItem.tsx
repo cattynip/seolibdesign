@@ -1,8 +1,8 @@
 import { Box, Link, useColorModeValue } from '@chakra-ui/react';
+import Anchor from '@components/Anchor';
 import { compareRouter } from '@libs/math';
 import { motion } from 'framer-motion';
-import NextLink from 'next/link';
-import { HTMLAttributeAnchorTarget, useEffect, useState } from 'react';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 interface INavigationElement {
   href: string;
@@ -37,8 +37,8 @@ const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
           css={{ filter: 'invert(100%)' }}
         />
       ) : null}
-      <NextLink href={href} target="_blank" passHref legacyBehavior>
-        <Link
+      <Anchor href={href}>
+        <Box
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -47,10 +47,11 @@ const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
           py={2}
           px={2.5}
           transition="color .8s ease"
+          cursor={'pointer'}
         >
           {children}
-        </Link>
-      </NextLink>
+        </Box>
+      </Anchor>
     </Box>
   );
 };

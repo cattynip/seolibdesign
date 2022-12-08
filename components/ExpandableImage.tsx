@@ -40,22 +40,23 @@ const ExpandableImage = ({
           scale: 1,
           y:
             appearDirection === 'top'
-              ? -1000
+              ? -2000
               : appearDirection === 'bottom'
-              ? 1000
+              ? 2000
               : 0,
           x:
             appearDirection === 'left'
-              ? -1000
+              ? -2000
               : appearDirection === 'right'
-              ? 1000
+              ? 2000
               : 0
         }}
         animate={{
           y: 0,
           x: 0,
           transition: {
-            delay: getRandomNumber(0, 2, false),
+            delay: getRandomNumber(1, 3, false),
+            bounce: 0.25,
             duration: 1,
             type: 'spring'
           }
