@@ -1,6 +1,6 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import Description from '@components/Description';
 import { TArea } from '@data/data';
-import ExpandableImage from '@components/ExpandableImage';
 
 interface IDetailedTop {
   area: TArea | string;
@@ -15,15 +15,7 @@ const DetailedTop = ({ area, description, finalImageUrl }: IDetailedTop) => {
         <Heading as="h1" size="3xl" pb={3}>
           {area}
         </Heading>
-        <Text>{description}</Text>
-      </Box>
-      <Box
-        width="sm"
-        mx={0}
-        display={{ base: 'flex', md: 'flex', sm: 'none' }}
-        justifyContent="flex-end"
-      >
-        <ExpandableImage url={finalImageUrl} width="40%" />
+        <Description description="This is a description of a cover page." />
       </Box>
     </Box>
   );

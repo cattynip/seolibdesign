@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react';
 import ThemeChanger from '@components/ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
 import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
 import { useRouter } from 'next/router';
@@ -68,7 +67,7 @@ const Header = () => {
                 </HeaderLinkItem>
                 <HeaderLinkItem href="/magazine" pathName={router.pathname}>
                   <IoNewspaper />
-                  <Text ml={1.5}>Magazine Project</Text>
+                  <Text ml={1.5}>Magazine</Text>
                 </HeaderLinkItem>
                 <HeaderLinkItem
                   href="https://github.com/cattynip/seolibdesign"
@@ -120,7 +119,7 @@ const Header = () => {
                   <Anchor href="/magazine">
                     <MenuItem>
                       <IoNewspaper />
-                      <Text ml={1.5}>Magazine Project</Text>
+                      <Text ml={1.5}>Magazine</Text>
                     </MenuItem>
                   </Anchor>
                   <Anchor href="https://github.com/cattynip/seolibdesign">

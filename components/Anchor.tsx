@@ -14,7 +14,6 @@ const Anchor = ({
   children,
   ...props
 }: IAnchor & AnchorHTMLAttributes<HTMLAnchorElement>) => {
-  console.log(href, colored);
   const anchorTextColor = useColorModeValue('#4340ff', 'orange');
 
   return (

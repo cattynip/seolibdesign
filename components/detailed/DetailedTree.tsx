@@ -1,4 +1,5 @@
 import { Box, Container, Heading, useColorModeValue } from '@chakra-ui/react';
+import Description from '@components/Description';
 import { TDataType } from '@data/data';
 import DetailedImage from './DetailedImage';
 
@@ -17,18 +18,12 @@ const DetailedTree = ({ stageType, images }: IDetailedTree) => {
       pb={8}
     >
       <Container>
-        <Heading
+        <Description
           textAlign="center"
-          fontWeight={300}
           fontSize="lg"
-          cursor="default"
-          transition="color .2s linear"
           pb={3}
-          textColor={useColorModeValue('gray.600', 'whiteAlpha.700')}
-          _hover={{ textColor: useColorModeValue('black', 'whiteAlpha.900') }}
-        >
-          {stageType}
-        </Heading>
+          description={stageType}
+        ></Description>
       </Container>
       <Box
         w="100%"

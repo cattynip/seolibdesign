@@ -1,15 +1,14 @@
 import {
-  Box,
   Heading,
   Stack,
   Flex,
   useColorModeValue,
-  Text,
   Divider
 } from '@chakra-ui/react';
 import React from 'react';
 import ProjectCard, { IProjectCard } from '@components/ProjectCard';
 import Section from '@components/Section';
+import Description from '@components/Description';
 
 interface IDashboardLayout {
   title: string;
@@ -24,15 +23,13 @@ const DashboardLayout = ({
   projects
 }: IDashboardLayout) => {
   const titleColor = useColorModeValue('black', 'white');
-  const descriptionColor = useColorModeValue('gray.600', 'whiteAlpha.700');
-  const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
 
   return (
     <>
-      <Box>
+      <Section delay={0.2}>
         {/* <HeaderGallery /> */}
         <Flex
-          py={10}
+          pt={10}
           flexDir={'column'}
           alignItems="center"
           justifyContent="center"
@@ -48,42 +45,34 @@ const DashboardLayout = ({
           >
             {title}
           </Heading>
-          <Text
+          <Description
             width="100%"
             maxW="container.sm"
-            textColor={descriptionColor}
             textAlign="center"
             transitionDuration="500ms"
-            cursor="default"
-            _hover={{ textColor: descriptionHoverColor }}
-          >
-            {description}
-          </Text>
+            description={description}
+          />
         </Flex>
-      </Box>
-      <Box>
-        <Stack
-          display="flex"
-          alignItems="center"
-          justifyContent="start"
-          experimental_spaceY={10}
-        >
+      </Section>
+
+      <Divider py={3} />
+
+      <Section delay={0.4}>
+        <Stack display="flex" alignItems="center" justifyContent="start">
           {projects.map((project, idx) => (
-            <Section
-              key={project.title}
-              delay={idx / 3}
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              justifyContent="start"
-              experimental_spaceY={10}
-            >
-              <ProjectCard {...project} />
-              <Divider />
+            <Section key={project.title} delay={idx / 3}>
+              <ProjectCard
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                justifyContent="start"
+                {...project}
+              />
+              <Divider p={3} />
             </Section>
           ))}
         </Stack>
-      </Box>
+      </Section>
     </>
   );
 };
