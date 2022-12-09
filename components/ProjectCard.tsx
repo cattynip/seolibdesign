@@ -30,10 +30,10 @@ const ProjectCard = ({
   const textColor = useColorModeValue('white', 'black');
 
   return (
-    <Box {...props}>
+    <Box {...props} pt={3}>
       <NextLink href={linkTo} passHref legacyBehavior>
         <Link
-          width={{ md: 'container.sm', sm: '100%' }}
+          width={{ md: 'container.md', sm: '100%' }}
           bg={boxBgColor}
           textColor={textColor}
           borderRadius="lg"

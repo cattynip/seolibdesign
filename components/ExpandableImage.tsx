@@ -2,12 +2,13 @@ import { Box, Img, ImgProps } from '@chakra-ui/react';
 import { getRandomNumber } from '@libs/math';
 import { motion } from 'framer-motion';
 import Overlay from '@components/Overlay';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 type appearDirectionType = 'top' | 'left' | 'bottom' | 'right';
 
 interface IExpandableImage {
   url: string;
+  children?: React.ReactNode;
   width?: number | string;
   height?: number | string;
   alt?: string;
@@ -16,6 +17,7 @@ interface IExpandableImage {
 
 const ExpandableImage = ({
   url,
+  children,
   alt,
   width,
   height,
@@ -23,7 +25,7 @@ const ExpandableImage = ({
   ...props
 }: IExpandableImage & ImgProps) => {
   const [isOverlayShown, setIsOverlayShown] = useState<boolean>(false);
-  const [uniqueId, setUniqueId] = useState<string>(
+  const [uniqueId, _setUniqueId] = useState<string>(
     url + alt + width + height + appearDirection
   );
 
@@ -75,19 +77,21 @@ const ExpandableImage = ({
       />
       {isOverlayShown ? (
         <Overlay onClick={() => setIsOverlayShown(false)}>
-          <Box position="fixed" top={70} width="full">
-            <Img
-              as={motion.img}
-              layoutId={uniqueId}
-              mx="auto"
-              width="2xl"
-              height="90%"
-              src={url}
-              alt={alt}
-              onClick={() => setIsOverlayShown(false)}
-              cursor="pointer"
-              {...props}
-            />
+          <Box position="fixed" top={70} width="100%" zIndex={'overlay'}>
+            <Box width="container.md" mx="auto" px="5">
+              <Img
+                as={motion.img}
+                layoutId={uniqueId}
+                mx={'auto'}
+                width="100%"
+                src={url}
+                alt={alt}
+                onClick={() => setIsOverlayShown(false)}
+                cursor="pointer"
+                {...props}
+              />
+              {children}
+            </Box>
           </Box>
         </Overlay>
       ) : null}
