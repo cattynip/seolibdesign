@@ -1,5 +1,12 @@
-import { Box, BoxProps, Heading } from '@chakra-ui/react';
+import {
+  BoxProps,
+  chakra,
+  Heading,
+  HTMLChakraComponents,
+  shouldForwardProp
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { HTMLAttributes } from 'react';
 
 interface ISection {
   children: React.ReactNode;
@@ -7,12 +14,17 @@ interface ISection {
   delay: number;
 }
 
-const Section = ({ children, title, delay, ...props }: ISection & BoxProps) => {
+const SectionDiv = chakra(motion.div, {
+  shouldForwardProp: prop => {
+    return shouldForwardProp(prop) || prop === 'transition';
+  }
+});
+
+const Section = ({ children, title, delay, ...props }: ISection) => {
   return (
-    <Box
-      as={motion.div}
+    <SectionDiv
       initial={{
-        y: 150,
+        y: 30,
         opacity: 0
       }}
       animate={{
@@ -20,7 +32,7 @@ const Section = ({ children, title, delay, ...props }: ISection & BoxProps) => {
         opacity: 1,
         transition: {
           type: 'spring',
-          bounce: 0.5,
+          bounce: 0.3,
           duration: 1.8,
           delay
         }
@@ -33,7 +45,7 @@ const Section = ({ children, title, delay, ...props }: ISection & BoxProps) => {
         </Heading>
       ) : null}
       {children}
-    </Box>
+    </SectionDiv>
   );
 };
 

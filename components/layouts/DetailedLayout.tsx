@@ -1,61 +1,49 @@
 import { Box, Divider } from '@chakra-ui/react';
 import DetailedTree from '@components/detailed/DetailedTree';
 import DetailedTop from '@components/detailed/DetailedTop';
-import DetailedInfor from '@components/detailed/DetailedInfor';
-import Head from 'next/head';
+import Section from '@components/Section';
 
-interface IDataKind {
+export interface IDataKind {
   explaination: string;
   urls: string[];
 }
 
-interface IData {
-  initial: IDataKind;
-  intermediate: IDataKind;
-  final: IDataKind;
+export interface IData<T> {
+  initial: T;
+  intermediate: T;
+  final: T;
 }
 
 interface IDetailedLayout {
   title: string;
   description: string;
-  datas: IData;
+  datas: IData<IDataKind>;
 }
 
 const DetailedLayout = ({ title, description, datas }: IDetailedLayout) => {
   return (
     <>
-      <Head>
-        <title>Seol IB Design - Magazine</title>
-        <meta
-          name="description"
-          content={`This page is about the ${title} of Magazine Project`}
-        />
-      </Head>
       <Box>
-        <Box width={'100%'} m={0} p={0}>
+        <Section delay={0.4}>
           <DetailedTop
             area={title}
             description={description}
             finalImageUrl={datas.final.urls[0]}
           />
-        </Box>
+        </Section>
 
-        <Divider p={3} />
+        <Divider py={3} />
 
-        <Box pt={3}>
+        <Section delay={0.8} title="Drafts Tree">
           <DetailedTree stageType="initial" images={datas.initial.urls} />
           <DetailedTree
             stageType="intermediate"
             images={datas.intermediate.urls}
           />
           <DetailedTree stageType="final" images={datas.final.urls} />
-        </Box>
+        </Section>
 
-        <Divider />
-
-        <Box>
-          <DetailedInfor defaultType="final" />
-        </Box>
+        <Divider py={3} />
       </Box>
     </>
   );
