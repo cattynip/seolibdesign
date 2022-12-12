@@ -11,7 +11,12 @@ interface INavigationElement {
   children: React.ReactNode;
 }
 
-const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
+const HeaderLinkItem = ({
+  href,
+  pathName,
+  target,
+  children
+}: INavigationElement) => {
   const boxBgColor = useColorModeValue('orange.400', 'purple.500');
   // This code does not use useState hook becuase this hook did not change the value of it strangly. So, I use this code temporarily.
   let isMatched = false;
@@ -37,7 +42,7 @@ const HeaderLinkItem = ({ href, pathName, children }: INavigationElement) => {
           css={{ filter: 'invert(100%)' }}
         />
       ) : null}
-      <Anchor href={href}>
+      <Anchor href={href} target={target}>
         <Box
           display="flex"
           alignItems="center"

@@ -2,9 +2,17 @@ import { Text, TextProps, useColorModeValue } from '@chakra-ui/react';
 
 interface IDescription {
   description?: string;
+  colors?: {
+    unHovered: string;
+    hovered: string;
+  };
 }
 
-const Description = ({ description, ...props }: IDescription & TextProps) => {
+const Description = ({
+  description,
+  colors,
+  ...props
+}: IDescription & TextProps) => {
   const descriptionColor = useColorModeValue('gray.600', 'whiteAlpha.700');
   const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
 
@@ -13,9 +21,9 @@ const Description = ({ description, ...props }: IDescription & TextProps) => {
   return (
     <Text
       cursor="default"
-      textColor={descriptionColor}
+      textColor={colors ? colors.unHovered : descriptionColor}
       transitionDuration="500ms"
-      _hover={{ textColor: descriptionHoverColor }}
+      _hover={{ textColor: colors ? colors.hovered : descriptionHoverColor }}
       {...props}
     >
       {description}
