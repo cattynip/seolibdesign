@@ -26,6 +26,39 @@ export interface IDataObjectKind extends IData {
   name: string;
 }
 
+export interface IProject {
+  [key: string]: {
+    title: string;
+    description: string;
+    shortDescription: string;
+    link: string;
+    iconType: string;
+    wasDone: boolean;
+    [key: string]: any;
+  };
+}
+
+export const ProjectsData: IProject = {
+  magazine: {
+    title: 'Magazine Project',
+    description:
+      'This is a project which is to develop and design the perfect magazine what my client want to make. For this, I had made 3 initial, 2 intermediate and last one final drafts for each sections which are Cover, Middle(Main) and Back pages.',
+    shortDescription:
+      'The project to design and develop the magazine for the client.',
+    link: '/magazine',
+    iconType: 'magazine',
+    wasDone: true
+  },
+  house: {
+    title: 'GingerBread House',
+    description: 'This is a project which is to plan ',
+    shortDescription: '',
+    link: '/gingerbread',
+    iconType: 'house',
+    wasDone: false
+  }
+};
+
 export const DataObjectCover: IDataObjectKind = {
   kind: 'cover',
   name: 'Cover Page',
@@ -65,7 +98,7 @@ export const DataObjectBack: IDataObjectKind = {
     'This is the FINAL DRAFT of the COVER PAGE. The response of my client about 2 intermediate drafts is to include a background image of the first draft and the structures of the second draft. So, I just combined and designed them. I felt that this part that I created as the final draft of the back page is the easiest part. I think that the reason that I created this well is the response of my client was easy to solve and apply.'
 };
 
-const DataObject: ISetData<IData> = {
+const DataObject: ISetData<IDataObjectKind> = {
   cover: DataObjectCover,
   middle: DataObjectMiddle,
   back: DataObjectBack
