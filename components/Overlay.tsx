@@ -15,10 +15,11 @@ const Overlay = ({ children, ...props }: IOverlay & BoxProps) => {
         zIndex={20}
         position="fixed"
         width={'full'}
-        height="full"
-        bg={'blackAlpha.800'}
-        blur="3xl"
-        top={0}
+        height="100vh"
+        overflow="hidden"
+        bg={'blackAlpha.500'}
+        backdropFilter="blur(3px)"
+        top={-2}
         left={0}
         initial={{
           opacity: 0
