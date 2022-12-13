@@ -1,6 +1,6 @@
 import { shuffleArray } from './math';
 
-type TImageType = 'cover' | 'middle' | 'back';
+export type TImageType = 'cover' | 'middle' | 'back';
 const ImageExtension = '.jpeg';
 const AllImageType: TImageType[] = ['cover', 'middle', 'back'];
 

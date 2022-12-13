@@ -1,22 +1,15 @@
 import { NextPage } from 'next';
 import DetailedLayout from '@components/layouts/DetailedLayout';
-import { DataObjectBack, DataObjectCover, DataObjectMiddle } from '@data/data';
-import { useRouter } from 'next/router';
+import { DataObjectCover } from '@data/data';
 
-const MagazineSection: NextPage = () => {
-  const router = useRouter();
-  const section = router.query.section;
-  const data =
-    section === 'cover'
-      ? DataObjectCover
-      : section === 'middle'
-      ? DataObjectMiddle
-      : DataObjectBack;
+const MagazineCover: NextPage = () => {
+  const data = DataObjectCover;
 
   return (
     <DetailedLayout
       title={data.name}
       description={data.description}
+      section={data.kind}
       datas={{
         initial: {
           explaination: data.initial,
@@ -35,4 +28,4 @@ const MagazineSection: NextPage = () => {
   );
 };
 
-export default MagazineSection;
+export default MagazineCover;
