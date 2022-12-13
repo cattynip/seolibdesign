@@ -6,9 +6,15 @@ import DetailedImage from './DetailedImage';
 interface IDetailedTree {
   stageType: TDataType;
   images: string[];
+  double?: boolean;
 }
 
-const DetailedTree = ({ stageType, images }: IDetailedTree) => {
+const DetailedTree = ({
+  stageType,
+  images,
+  double,
+  ...props
+}: IDetailedTree & BoxProps) => {
   return (
     <Box
       display={'flex'}
@@ -16,6 +22,7 @@ const DetailedTree = ({ stageType, images }: IDetailedTree) => {
       alignItems="center"
       justifyContent="center"
       pb={8}
+      {...props}
     >
       <Container>
         <Description

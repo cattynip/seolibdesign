@@ -21,7 +21,7 @@ const Anchor = ({
       <a
         style={{
           cursor: 'pointer',
-          color: colored ? anchorTextColor : 'white'
+          color: colored ? anchorTextColor : 'auto'
         }}
         {...props}
       >

@@ -1,26 +1,28 @@
-import { Box, Stack } from '@chakra-ui/react';
+import { Box, BoxProps, Stack } from '@chakra-ui/react';
 import ExpandableImage from '@components/ExpandableImage';
+import { motion } from 'framer-motion';
 
 interface IDetailedImage {
   imageData: string[];
 }
 
-const ImageWidth = 120;
-const ImageHeight = (ImageWidth * 4) / 3;
+export const ImageWidth = 120;
+export const ImageHeight = (ImageWidth * 4) / 3;
 
-const DetailedImage = ({ imageData }: IDetailedImage) => {
+const DetailedImage = ({ imageData, ...props }: IDetailedImage & BoxProps) => {
   return (
-    <Box>
-      <Stack position="relative" m={0} cursor="pointer">
+    <Box {...props}>
+      <Stack as={motion.div} position="relative" m={0} cursor="pointer">
         {imageData.map((value, index) => (
           <ExpandableImage
             url={value}
             position={index === 1 ? 'absolute' : 'static'}
-            top={index === 1 ? 1.3 : 0}
-            left={index === 1 ? 3 : 0}
+            top={index === 1 ? 1.5 : 0}
+            left={index === 1 ? 5 : 0}
             zIndex={index === 1 ? -10 : 10}
             key={index}
             alt={value}
+            shadow={index === 0 ? '2xl' : 'sm'}
             width={ImageWidth}
             height={ImageHeight}
           />

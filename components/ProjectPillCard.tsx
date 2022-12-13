@@ -1,6 +1,12 @@
-import { Box, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  useColorMode,
+  useColorModeValue
+} from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { isDate } from 'util/types';
 import Description from './Description';
 import ProjectIcon from './ProjectIcon';
 
@@ -20,7 +26,9 @@ const ProjectPillCard = ({
   description
 }: IProjectPillCard) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const boxBgColor = useColorModeValue('#383831', '#f0e7db');
+  const boxBgColor = useColorModeValue('#202023', '#f0e7db');
+  const textColor = useColorModeValue('white', 'black');
+  const isDark = useColorMode();
 
   return (
     <>
@@ -48,8 +56,8 @@ const ProjectPillCard = ({
         onMouseLeave={() => setIsHovered(false)}
         position="relative"
         shadow="dark-lg"
-        bg={isAvailable ? boxBgColor : 'gray.700'}
-        textColor={isAvailable ? 'black' : 'yellow.50'}
+        bg={boxBgColor}
+        textColor={textColor}
         borderRadius="full"
         cursor={isAvailable ? 'pointer' : 'not-allowed'}
         zIndex={10}
@@ -95,14 +103,23 @@ const ProjectPillCard = ({
             justifyContent="center"
             experimental_spaceY={0}
           >
-            <Heading as={'h2'} textColor={isAvailable ? 'black' : 'white'}>
+            <Heading as={'h2'} textColor={isAvailable ? textColor : 'white'}>
               {title}
             </Heading>
             <Description
               description={description}
               colors={
                 isAvailable
-                  ? { unHovered: 'gray.500', hovered: 'gray.900' }
+                  ? {
+                      unHovered:
+                        isDark.colorMode === 'dark'
+                          ? 'gray.500'
+                          : 'whiteAlpha.600',
+                      hovered:
+                        isDark.colorMode === 'dark'
+                          ? 'gray.900'
+                          : 'whiteAlpha.900'
+                    }
                   : undefined
               }
               cursor={isAvailable ? 'default' : 'not-allowed'}

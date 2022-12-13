@@ -26,7 +26,7 @@ const ProjectCard = ({
   imageUrl,
   ...props
 }: IProjectCard & BoxProps) => {
-  const boxBgColor = useColorModeValue('#383831', '#f0e7db');
+  const boxBgColor = useColorModeValue('#202023', '#f0e7db');
   const textColor = useColorModeValue('white', 'black');
 
   return (
