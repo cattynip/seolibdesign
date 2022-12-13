@@ -1,4 +1,4 @@
-import { Box, Divider } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import DetailedTree from '@components/detailed/DetailedTree';
 import DetailedTop from '@components/detailed/DetailedTop';
 import Section from '@components/Section';
@@ -32,7 +32,7 @@ const DetailedLayout = ({ title, description, datas }: IDetailedLayout) => {
           />
         </Section>
 
-        <Divider py={3} />
+        <Separator />
 
         <Section delay={0.8} title="Drafts Tree">
           <DetailedTree stageType="initial" images={datas.initial.urls} />
@@ -43,7 +43,7 @@ const DetailedLayout = ({ title, description, datas }: IDetailedLayout) => {
           <DetailedTree stageType="final" images={datas.final.urls} />
         </Section>
 
-        <Divider py={3} />
+        <Separator />
       </Box>
     </>
   );

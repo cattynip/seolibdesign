@@ -1,14 +1,9 @@
-import {
-  Heading,
-  Stack,
-  Flex,
-  useColorModeValue,
-  Divider
-} from '@chakra-ui/react';
+import { Heading, Stack, Flex, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import ProjectCard, { IProjectCard } from '@components/ProjectCard';
 import Section from '@components/Section';
 import Description from '@components/Description';
+import Separator from '@components/Separator';
 
 interface IDashboardLayout {
   title: string;
@@ -55,7 +50,7 @@ const DashboardLayout = ({
         </Flex>
       </Section>
 
-      <Divider py={3} />
+      <Separator />
 
       <Section delay={0.4}>
         <Stack display="flex" alignItems="center" justifyContent="start">
@@ -68,7 +63,7 @@ const DashboardLayout = ({
                 justifyContent="start"
                 {...project}
               />
-              <Divider p={3} />
+              <Separator />
             </Section>
           ))}
         </Stack>
