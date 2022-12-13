@@ -1,10 +1,11 @@
 import { NextPage } from 'next';
-import { Box, Divider, Heading, Img, Text } from '@chakra-ui/react';
+import { Box, Heading, Img, Text } from '@chakra-ui/react';
 import Section from '@components/Section';
 import Anchor from '@components/Anchor';
 import { motion } from 'framer-motion';
 import Projects, { Project } from '@components/Projects';
 import { ProjectsData } from '@data/data';
+import Separator from '@components/Separator';
 
 const Home: NextPage = () => {
   const projects: Project[] = [];
@@ -35,7 +36,7 @@ const Home: NextPage = () => {
         </Text>
       </Section>
 
-      <Divider py={3} />
+      <Separator />
 
       <Section delay={0.4} title="About Me">
         <Box
@@ -79,7 +80,7 @@ const Home: NextPage = () => {
         </Box>
       </Section>
 
-      <Divider py={3} />
+      <Separator />
 
       <Section delay={0.6} title="Projects">
         <Projects projects={projects} />
