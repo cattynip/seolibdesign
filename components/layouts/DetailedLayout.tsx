@@ -5,6 +5,7 @@ import Section from '@components/Section';
 import { useState } from 'react';
 import { TArea, TDataType } from '@data/data';
 import Separator from '@components/Separator';
+import DetailedInformation from '@components/detailed/DetailedInformation';
 
 export interface IDataKind {
   explaination: string;
@@ -30,7 +31,7 @@ const DetailedLayout = ({
   description,
   datas
 }: IDetailedLayout) => {
-  const [currentExplaination, _setCurrentExplaination] =
+  const [currentExplaination, setCurrentExplaination] =
     useState<TDataType>('description');
 
   return (
@@ -51,6 +52,11 @@ const DetailedLayout = ({
                 section={section}
                 images={datas.initial.urls}
                 id="initial"
+                onClick={() => {
+                  setCurrentExplaination(prev =>
+                    prev === 'initial' ? 'description' : 'initial'
+                  );
+                }}
               />
             )}
 
@@ -61,6 +67,11 @@ const DetailedLayout = ({
                 section={section}
                 images={datas.intermediate.urls}
                 id="intermediate"
+                onClick={() =>
+                  setCurrentExplaination(prev =>
+                    prev === 'intermediate' ? 'description' : 'intermediate'
+                  )
+                }
               />
             )}
 
@@ -71,9 +82,20 @@ const DetailedLayout = ({
                 section={section}
                 images={datas.final.urls}
                 id="final"
+                onClick={() =>
+                  setCurrentExplaination(prev =>
+                    prev === 'final' ? 'description' : 'final'
+                  )
+                }
               />
             )}
           </Box>
+
+          {currentExplaination !== 'description' ? (
+            <DetailedInformation
+              information={datas[currentExplaination].explaination}
+            />
+          ) : null}
         </Section>
 
         <Separator />
