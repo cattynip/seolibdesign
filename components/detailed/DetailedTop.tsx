@@ -1,0 +1,23 @@
+import { Box, Heading } from '@chakra-ui/react';
+import Description from '@components/Description';
+import { TArea } from '@data/data';
+
+interface IDetailedTop {
+  area: TArea | string;
+  description: string;
+}
+
+const DetailedTop = ({ area, description }: IDetailedTop) => {
+  return (
+    <Box width="100%" display="flex" justifyContent={'space-between'}>
+      <Box width={{ base: 'max', sm: '100%' }}>
+        <Heading as="h1" size="3xl" pb={3}>
+          {area}
+        </Heading>
+        <Description description={description} fontSize="sm" />
+      </Box>
+    </Box>
+  );
+};
+
+export default DetailedTop;
