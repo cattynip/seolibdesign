@@ -8,7 +8,7 @@ import Separator from '@components/Separator';
 
 export interface IDataKind {
   explaination: string;
-  urls: string[];
+  urls: string[] | string[][];
 }
 
 export interface IData<T> {
@@ -43,12 +43,37 @@ const DetailedLayout = ({
         <Separator />
 
         <Section delay={0.8} title="Drafts Tree">
-          <DetailedTree stageType="initial" images={datas.initial.urls} />
-          <DetailedTree
-            stageType="intermediate"
-            images={datas.intermediate.urls}
-          />
-          <DetailedTree stageType="final" images={datas.final.urls} />
+          <Box>
+            {(currentExplaination === 'description' ||
+              currentExplaination === 'initial') && (
+              <DetailedTree
+                stageType="initial"
+                section={section}
+                images={datas.initial.urls}
+                id="initial"
+              />
+            )}
+
+            {(currentExplaination === 'description' ||
+              currentExplaination === 'intermediate') && (
+              <DetailedTree
+                stageType="intermediate"
+                section={section}
+                images={datas.intermediate.urls}
+                id="intermediate"
+              />
+            )}
+
+            {(currentExplaination === 'description' ||
+              currentExplaination === 'final') && (
+              <DetailedTree
+                stageType="final"
+                section={section}
+                images={datas.final.urls}
+                id="final"
+              />
+            )}
+          </Box>
         </Section>
 
         <Separator />
