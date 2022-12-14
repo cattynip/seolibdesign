@@ -1,12 +1,5 @@
-import {
-  BoxProps,
-  chakra,
-  Heading,
-  HTMLChakraComponents,
-  shouldForwardProp
-} from '@chakra-ui/react';
+import { chakra, Heading, shouldForwardProp } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { HTMLAttributes } from 'react';
 
 interface ISection {
   children: React.ReactNode;

@@ -19,7 +19,7 @@ const Overlay = ({ children, ...props }: IOverlay & BoxProps) => {
         overflow="hidden"
         bg={'blackAlpha.500'}
         backdropFilter="blur(3px)"
-        top={-2}
+        top={0}
         left={0}
         initial={{
           opacity: 0
