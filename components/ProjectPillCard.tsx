@@ -6,7 +6,6 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { isDate } from 'util/types';
 import Description from './Description';
 import ProjectIcon from './ProjectIcon';
 
