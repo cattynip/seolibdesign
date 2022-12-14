@@ -101,3 +101,23 @@ export function shuffleArray<T>(array: T[]): T[] {
 
   return array;
 }
+
+export function firstCapitalize(string: string): string {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function makeOrdinalNumbers(number: number): string {
+  let string: string;
+
+  if (number === 1) {
+    string = 'first';
+  } else if (number === 2) {
+    string = 'second';
+  } else if (number === 3) {
+    string = 'third';
+  } else {
+    string = '';
+  }
+
+  return string;
+}

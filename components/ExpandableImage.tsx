@@ -1,4 +1,4 @@
-import { Box, Img, ImgProps } from '@chakra-ui/react';
+import { AspectRatio, Box, Img, ImgProps } from '@chakra-ui/react';
 import { getRandomNumber } from '@libs/math';
 import { motion } from 'framer-motion';
 import Overlay from '@components/Overlay';
@@ -6,39 +6,35 @@ import React, { useState } from 'react';
 
 type appearDirectionType = 'top' | 'left' | 'bottom' | 'right';
 
+export const ImageWidth = 130;
+export const ImageHeight = (ImageWidth * 4) / 3;
+
 interface IExpandableImage {
   url: string;
   children?: React.ReactNode;
-  width?: number | string;
-  height?: number | string;
   alt?: string;
   appearDirection?: appearDirectionType;
+  appearTime?: number;
 }
 
 const ExpandableImage = ({
   url,
   children,
   alt,
-  width,
-  height,
   appearDirection = 'top',
+  appearTime = 2,
   ...props
 }: IExpandableImage & ImgProps) => {
   const [isOverlayShown, setIsOverlayShown] = useState<boolean>(false);
-  const [uniqueId, _setUniqueId] = useState<string>(
-    url + alt + width + height + appearDirection
-  );
 
   return (
     <>
       <Img
         as={motion.img}
-        layoutId={uniqueId}
+        layoutId={url}
         src={url}
         alt={alt}
         initial={{
-          width: width ? width : 'auto',
-          height: height ? height : 'auto',
           scale: 1,
           y:
             appearDirection === 'top'
@@ -57,7 +53,7 @@ const ExpandableImage = ({
           y: 0,
           x: 0,
           transition: {
-            delay: getRandomNumber(1, 3, false),
+            delay: getRandomNumber(1, appearTime, false),
             bounce: 0.25,
             duration: 1,
             type: 'spring'
@@ -66,32 +62,44 @@ const ExpandableImage = ({
         whileHover={{
           borderRadius: '3%',
           scale: [1, 0.95, 1.75, 1.7],
+          zIndex: [0, 0, 0, 10],
           transition: {
             type: 'spring',
             duration: 0.5
           }
         }}
-        onClick={() => setIsOverlayShown(true)}
         cursor="pointer"
+        onClick={() => setIsOverlayShown(true)}
         {...props}
       />
       {isOverlayShown ? (
         <Overlay onClick={() => setIsOverlayShown(false)}>
-          <Box position="fixed" top={70} width="100%" zIndex={'overlay'}>
-            <Box width="container.md" mx="auto" px="5">
-              <Img
-                as={motion.img}
-                layoutId={uniqueId}
-                mx={'auto'}
-                width="100%"
-                src={url}
-                alt={alt}
-                onClick={() => setIsOverlayShown(false)}
-                cursor="pointer"
-                {...props}
-              />
-              {children}
-            </Box>
+          <Box
+            position="fixed"
+            top={70}
+            width="100%"
+            zIndex={'overlay'}
+            px={5}
+            experimental_spaceY={3}
+          >
+            <AspectRatio
+              maxW={'100%'}
+              maxH={'90vh'}
+              ratio={ImageWidth / ImageHeight}
+              width="container.md"
+              mx="auto"
+            >
+              <>
+                <Img
+                  as={motion.img}
+                  layoutId={url}
+                  mx={'auto'}
+                  width="100%"
+                  src={url}
+                  {...props}
+                />
+              </>
+            </AspectRatio>
           </Box>
         </Overlay>
       ) : null}
