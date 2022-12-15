@@ -1,9 +1,9 @@
 import { Box, Heading } from '@chakra-ui/react';
 import Description from '@components/Description';
-import { TArea } from '@data/data';
+import { TMagazineArea } from '@data/magazineData';
 
 interface IDetailedTop {
-  area: TArea | string;
+  area: TMagazineArea | string;
   description: string;
 }
 

@@ -10,15 +10,13 @@ import ProjectsData from '@data/data';
 const Home: NextPage = () => {
   const projects: Project[] = [];
 
-  for (const k in ProjectsData) {
-    const currentObject = ProjectsData[k];
-
+  for (const [_key, value] of Object.entries(ProjectsData)) {
     projects.push({
-      linkTo: currentObject.link,
-      iconType: currentObject.iconType,
-      title: currentObject.title,
-      description: currentObject.shortDescription,
-      available: currentObject.finished
+      linkTo: value.link,
+      iconType: value.iconType,
+      title: value.title,
+      description: value.shortDescription,
+      available: value.finished
     });
   }
 
