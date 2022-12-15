@@ -1,30 +1,30 @@
 import { NextPage } from 'next';
 import DashboardLayout from '@components/layouts/DashboardLayout';
-import dataManagement from '@libs/dataManagement';
 import { IProjectCard } from '@components/ProjectCard';
-import { ProjectsData } from '@data/data';
+import ProjectsData from '@data/magazineData';
 
 const Home: NextPage = () => {
-  const projectData = dataManagement({ area: 'all' });
+  const projectData = ProjectsData;
   const projectDatas: IProjectCard[] = [];
-  const currentProject = ProjectsData['magazine'];
 
-  projectData.map(value => {
-    if (!value) return;
+  for (const key in projectData.data) {
+    const currentData = projectData.data[key];
+
     projectDatas.push({
-      title: value.name,
-      description: value.description,
-      linkTo: `/magazine/${value.kind}`,
-      imageUrl: `/${value.kind}/1-1${
-        value.kind === 'middle' ? '-' + '1' : ''
-      }.jpeg`
+      title: currentData.name,
+      description: currentData.description,
+      linkTo: `/magazine/${currentData.kind}`,
+      imageUrl:
+        typeof currentData.final.imageUrls[0] === 'string'
+          ? currentData.final.imageUrls[0]
+          : currentData.final.imageUrls[0][0]
     });
-  });
+  }
 
   return (
     <DashboardLayout
-      title={currentProject.title}
-      description={currentProject.description}
+      title={ProjectsData.title}
+      description={ProjectsData.description}
       projects={projectDatas}
     />
   );

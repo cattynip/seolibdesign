@@ -3,7 +3,7 @@ import DetailedTree from '@components/detailed/DetailedTree';
 import DetailedTop from '@components/detailed/DetailedTop';
 import Section from '@components/Section';
 import { useState } from 'react';
-import { TArea, TDataType } from '@data/data';
+import { TMagazineArea, TMagazinePart } from '@data/magazineData';
 import Separator from '@components/Separator';
 import DetailedInformation from '@components/detailed/DetailedInformation';
 
@@ -21,7 +21,7 @@ export interface IData<T> {
 interface IDetailedLayout {
   title: string;
   description: string;
-  section: TArea;
+  section: TMagazineArea;
   datas: IData<IDataKind>;
 }
 
@@ -32,7 +32,7 @@ const DetailedLayout = ({
   datas
 }: IDetailedLayout) => {
   const [currentExplaination, setCurrentExplaination] =
-    useState<TDataType>('description');
+    useState<TMagazinePart>('description');
 
   return (
     <>

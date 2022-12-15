@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import DetailedLayout from '@components/layouts/DetailedLayout';
-import { DataObjectMiddle } from '@data/data';
+import { MagazineDataMiddle } from '@data/magazineData';
 
 const MagazineMiddle: NextPage = () => {
-  const data = DataObjectMiddle;
+  const data = MagazineDataMiddle;
 
   return (
     <DetailedLayout
@@ -12,23 +12,16 @@ const MagazineMiddle: NextPage = () => {
       section={data.kind}
       datas={{
         initial: {
-          explaination: data.initial,
-          urls: [
-            ['/middle/1-1-1.jpeg', '/middle/1-1-2.jpeg'],
-            ['/middle/1-2-1.jpeg', '/middle/1-2-2.jpeg'],
-            ['/middle/1-3-1.jpeg', '/middle/1-3-2.jpeg']
-          ]
+          explaination: data.initial.explaination,
+          urls: data.initial.imageUrls
         },
         intermediate: {
-          explaination: data.intermediate,
-          urls: [
-            ['/middle/2-1-1.jpeg', '/middle/2-1-2.jpeg'],
-            ['/middle/2-2-1.jpeg', '/middle/2-2-2.jpeg']
-          ]
+          explaination: data.intermediate.explaination,
+          urls: data.intermediate.imageUrls
         },
         final: {
-          explaination: data.final,
-          urls: [['/middle/3-1.jpeg', '/middle/3-2.jpeg']]
+          explaination: data.final.explaination,
+          urls: data.final.imageUrls
         }
       }}
     />
