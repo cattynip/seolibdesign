@@ -4,8 +4,8 @@ import Section from '@components/Section';
 import Anchor from '@components/Anchor';
 import { motion } from 'framer-motion';
 import Projects, { Project } from '@components/Projects';
-import { ProjectsData } from '@data/data';
 import Separator from '@components/Separator';
+import ProjectsData from '@data/data';
 
 const Home: NextPage = () => {
   const projects: Project[] = [];
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       iconType: currentObject.iconType,
       title: currentObject.title,
       description: currentObject.shortDescription,
-      available: currentObject.wasDone
+      available: currentObject.finished
     });
   }
 
