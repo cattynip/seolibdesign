@@ -4,13 +4,13 @@ import ExpandableImage, {
   ImageHeight,
   ImageWidth
 } from '@components/ExpandableImage';
-import { TArea, TDataType } from '@data/data';
+import { TMagazineArea, TMagazinePart } from '@data/magazineData';
 import { firstCapitalize } from '@libs/math';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface IDetailedTree {
-  stageType: TDataType;
-  section: TArea;
+  stageType: TMagazinePart;
+  section: TMagazineArea;
   images: string[] | string[][];
   changeVariableFn?: () => void;
 }

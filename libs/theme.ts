@@ -33,7 +33,7 @@ const fonts = {
 };
 
 const themeConfig: ThemeConfig = {
-  initialColorMode: 'system',
+  initialColorMode: 'dark',
   useSystemColorMode: false,
   disableTransitionOnChange: false
 };

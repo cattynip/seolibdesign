@@ -102,9 +102,7 @@ const ProjectPillCard = ({
             justifyContent="center"
             experimental_spaceY={0}
           >
-            <Heading as={'h2'} textColor={isAvailable ? textColor : 'white'}>
-              {title}
-            </Heading>
+            <Heading as={'h2'}>{title}</Heading>
             <Description
               description={description}
               colors={

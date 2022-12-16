@@ -2,21 +2,21 @@ import { Divider, useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const Separator = () => {
-  const dividerBorderColor = useColorModeValue(
-    'blackAlpha.600',
-    'whiteAlpha.500'
-  );
+  const dividerBorderColor = useColorModeValue('black', 'white');
 
   return (
     <Divider
       as={motion.hr}
       initial={{
-        x: -100000
+        x: 0,
+        scaleX: 0
       }}
       animate={{
         x: 0,
+        scaleX: 1,
+        borderWidth: 100,
         transition: {
-          duration: 3
+          duration: 0.7
         }
       }}
       py={3}
