@@ -59,8 +59,15 @@ const Home: NextPage = () => {
           <Box>
             <Img
               as={motion.img}
+              initial={{
+                scale: 1,
+                zIndex: 0,
+                y: 0
+              }}
               whileHover={{
-                scale: [1, 0.9, 1.4, 1.35],
+                scale: [1, 0.9, 1.3, 1.25],
+                zIndex: [0, 0, 0, 10],
+                y: [0, -40, -30, -35],
                 transition: {
                   type: 'spring',
                   bounce: 0.6,
