@@ -6,7 +6,6 @@ import ProjectsData from '@data/magazineData';
 const Home: NextPage = () => {
   const projectData = ProjectsData;
   const projectDatas: IProjectCard[] = [];
-  const currentProject = ProjectsData['magazine'];
 
   for (const key in projectData.data) {
     const currentData = projectData.data[key];
