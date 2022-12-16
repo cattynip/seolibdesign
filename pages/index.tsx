@@ -45,16 +45,16 @@ const Home: NextPage = () => {
           alignItems={{ md: 'center', sm: 'flex-start' }}
         >
           <Text textAlign={{ md: 'left', sm: 'center' }} width="100%">
-            Hello, I am Seol SO from South Korea. I have been attending on&nbsp;
+            Hello, I am Seol SO from South Korea. I have been attending&nbsp;
             <Anchor href="https://www.bodwell.edu/" target="_blank" colored>
               Bodwell
             </Anchor>
             , Canada Private High School since September 1, 2022, as a student
-            who loves to write Codes and build Services. On the Design 8B class,
-            which have been leaded by Mr. Gunn, I have been doing a lot of
-            projects, such as Magazine Project, and GB House Project. And I am
-            and will be working hard on the Design assignments and projects to
-            be improved much better as a level of design.
+            who loves to write Codes and Build Services. In the Design 8B class,
+            which has been led by Mr. Gunn, I have been doing a lot of projects,
+            such as the Magazine Project, and the GB House Project. And I am and
+            will be working hard on the Design assignments and projects to be
+            improved much better as a level of design.
           </Text>
           <Box>
             <Img
