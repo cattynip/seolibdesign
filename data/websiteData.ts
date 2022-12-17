@@ -4,6 +4,7 @@ export interface IWebsiteData {
   title: string;
   shortDescription: string;
   datas: {
+    sectionTitle?: string;
     content?: string;
     image?: {
       src: string;

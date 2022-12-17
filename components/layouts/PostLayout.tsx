@@ -23,7 +23,7 @@ const PostLayout = ({ datas }: IPostLayout) => {
                   alignItems="center"
                   justifyContent={'space-between'}
                 >
-                  <Heading as={'h2'} size={'2xl'}>
+                  <Heading as={'h2'} size={'xl'}>
                     {value.title}
                   </Heading>
                   <Description description={value.shortDescription} />
@@ -37,6 +37,11 @@ const PostLayout = ({ datas }: IPostLayout) => {
               >
                 {value.datas.map((content, idx) => (
                   <Box key={idx} py={3}>
+                    {content.sectionTitle ? (
+                      <Heading as={'h3'} size="lg" pb={3}>
+                        {content.sectionTitle}
+                      </Heading>
+                    ) : null}
                     {content.content ? (
                       <Text>{content.content}</Text>
                     ) : content.image ? (
