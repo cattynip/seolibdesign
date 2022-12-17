@@ -36,30 +36,32 @@ const PostLayout = ({ datas }: IPostLayout) => {
                 justifyContent={'center'}
               >
                 {value.datas.map((content, idx) => (
-                  <Box key={idx} py={3}>
-                    {content.sectionTitle ? (
-                      <Heading as={'h3'} size="lg" pb={3}>
-                        {content.sectionTitle}
-                      </Heading>
-                    ) : null}
-                    {content.content ? (
-                      <Text>{content.content}</Text>
-                    ) : content.image ? (
-                      <Stack
-                        display="flex"
-                        flexDir={'column'}
-                        alignItems="center"
-                        justifyContent={'center'}
-                      >
-                        <PostImage
-                          url={content.image.src}
-                          explaination={content.image.explaination}
-                          key={idx}
-                          width={'70%'}
-                        />
-                      </Stack>
-                    ) : null}
-                  </Box>
+                  <Section delay={0.8} key={idx}>
+                    <Box py={3}>
+                      {content.sectionTitle ? (
+                        <Heading as={'h3'} size="lg" pb={3}>
+                          {content.sectionTitle}
+                        </Heading>
+                      ) : null}
+                      {content.content ? (
+                        <Text>{content.content}</Text>
+                      ) : content.image ? (
+                        <Stack
+                          display="flex"
+                          flexDir={'column'}
+                          alignItems="center"
+                          justifyContent={'center'}
+                        >
+                          <PostImage
+                            url={content.image.src}
+                            explaination={content.image.explaination}
+                            key={idx}
+                            width={'70%'}
+                          />
+                        </Stack>
+                      ) : null}
+                    </Box>
+                  </Section>
                 ))}
               </Box>
 
