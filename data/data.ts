@@ -1,4 +1,5 @@
 import MagazineProjectData from './magazineData';
+import WebsiteProjectData from './websiteData';
 
 type TProjects = 'magazine' | 'website' | 'house';
 
@@ -22,16 +23,7 @@ export interface IProjectData<T = any> {
 
 const ProjectsData: IProject = {
   magazine: MagazineProjectData,
-  website: {
-    title: 'Website',
-    description: 'This is a project which is to build a website.',
-    shortDescription:
-      'The project to build and deploy the website to show the results.',
-    link: '/website',
-    iconType: 'website',
-    finished: false,
-    data: {}
-  },
+  website: WebsiteProjectData,
   house: {
     title: 'Holiday House',
     description: 'This is a project which is to holiday house.',
