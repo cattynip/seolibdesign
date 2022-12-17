@@ -62,26 +62,31 @@ const Header = () => {
               justifyContent="center"
               experimental_spaceY={0}
             >
-              <HeaderLinkItem href="/" pathName={router.pathname}>
-                <IoHome />
-                <Text ml={1.5}>Home</Text>
-              </HeaderLinkItem>
-              <HeaderLinkItem href="/magazine" pathName={router.pathname}>
-                <IoNewspaper />
-                <Text ml={1.5}>Magazine</Text>
-              </HeaderLinkItem>
-              <HeaderLinkItem href="/website" pathName={router.pathname}>
-                <CgWebsite />
-                <Text ml={1.5}>Website</Text>
-              </HeaderLinkItem>
+              <HeaderLinkItem
+                href="/"
+                pathName={router.pathname}
+                icon="home"
+                text="Home"
+              />
+              <HeaderLinkItem
+                href="/magazine"
+                pathName={router.pathname}
+                icon="magazine"
+                text="Magazine"
+              />
+              <HeaderLinkItem
+                href="/website"
+                pathName={router.pathname}
+                icon="website"
+                text="Website"
+              />
               <HeaderLinkItem
                 href="https://github.com/cattynip/seolibdesign"
                 pathName={router.pathname}
                 target="_blank"
-              >
-                <IoLogoGithub />
-                <Text ml={1.5}>Source</Text>
-              </HeaderLinkItem>
+                icon="github"
+                text="GitHub"
+              />
             </Stack>
           </Container>
 

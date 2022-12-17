@@ -1,21 +1,24 @@
-import { Box, Link, useColorModeValue } from '@chakra-ui/react';
+import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Anchor from '@components/Anchor';
+import ProjectIcon from '@components/ProjectIcon';
 import { compareRouter } from '@libs/math';
 import { motion } from 'framer-motion';
 import { HTMLAttributeAnchorTarget } from 'react';
 
 interface INavigationElement {
   href: string;
+  icon: string;
+  text: string;
   target?: HTMLAttributeAnchorTarget;
   pathName: string;
-  children: React.ReactNode;
 }
 
 const HeaderLinkItem = ({
   href,
+  icon,
+  text,
   pathName,
-  target,
-  children
+  target
 }: INavigationElement) => {
   const boxBgColor = useColorModeValue('orange.400', 'purple.500');
   // This code does not use useState hook becuase this hook did not change the value of it strangly. So, I use this code temporarily.
@@ -54,7 +57,8 @@ const HeaderLinkItem = ({
           transition="color .8s ease"
           cursor={'pointer'}
         >
-          {children}
+          <ProjectIcon iconType={icon} size={20} />
+          <Text ml={1.5}>{text}</Text>
         </Box>
       </Anchor>
     </Box>
