@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Container,
-  Flex,
   Heading,
   Menu,
   MenuButton,
@@ -16,6 +15,7 @@ import ThemeChanger from '@components/ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Logo from './Logo';
 import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
+import { CgWebsite } from 'react-icons/cg';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import Anchor from '@components/Anchor';
@@ -28,8 +28,7 @@ const Header = () => {
       <Box position="fixed" top={3} px={3} as="nav" w="100%" zIndex={100}>
         <Container
           py={1}
-          pr={1}
-          pl={1}
+          px={1}
           width="100%"
           maxW="container.md"
           height="auto"
@@ -42,44 +41,54 @@ const Header = () => {
           flexDir="row"
           justifyContent="space-between"
         >
-          <Flex
-            display="flex"
+          <Box display="flex" flexDir={'row'} justifyContent="space-between">
+            <Heading alignSelf="center">
+              <Logo />
+            </Heading>
+          </Box>
+
+          <Container
+            display={{ base: 'none', md: 'flex' }}
             flexDir="row"
             alignItems="center"
             position={'relative'}
           >
-            <Container display="flex" flexDir={'row'}>
-              <Heading alignSelf="center">
-                <Logo />
-              </Heading>
-
-              <Stack
-                display={{ base: 'none', md: 'flex' }}
-                width={{ base: 'full', md: 'auto' }}
-                alignItems="center"
-                mt={{ base: 5, md: 0 }}
-                flexGrow={1}
-                direction={{ base: 'column', md: 'row' }}
-              >
-                <HeaderLinkItem href="/" pathName={router.pathname}>
-                  <IoHome />
-                  <Text ml={1.5}>Home</Text>
-                </HeaderLinkItem>
-                <HeaderLinkItem href="/magazine" pathName={router.pathname}>
-                  <IoNewspaper />
-                  <Text ml={1.5}>Magazine</Text>
-                </HeaderLinkItem>
-                <HeaderLinkItem
-                  href="https://github.com/cattynip/seolibdesign"
-                  pathName={router.pathname}
-                  target="_blank"
-                >
-                  <IoLogoGithub />
-                  <Text ml={1.5}>Source</Text>
-                </HeaderLinkItem>
-              </Stack>
-            </Container>
-          </Flex>
+            <Stack
+              width={{ base: 'full', md: 'auto' }}
+              mt={{ base: 5, md: 0 }}
+              flexGrow={1}
+              flexDir="row"
+              alignItems="center"
+              justifyContent="center"
+              experimental_spaceY={0}
+            >
+              <HeaderLinkItem
+                href="/"
+                pathName={router.pathname}
+                icon="home"
+                text="Home"
+              />
+              <HeaderLinkItem
+                href="/magazine"
+                pathName={router.pathname}
+                icon="magazine"
+                text="Magazine"
+              />
+              <HeaderLinkItem
+                href="/website"
+                pathName={router.pathname}
+                icon="website"
+                text="Website"
+              />
+              <HeaderLinkItem
+                href="https://github.com/cattynip/seolibdesign"
+                pathName={router.pathname}
+                target="_blank"
+                icon="github"
+                text="GitHub"
+              />
+            </Stack>
+          </Container>
 
           <Box display="flex">
             <ThemeChanger />
@@ -120,6 +129,12 @@ const Header = () => {
                     <MenuItem>
                       <IoNewspaper />
                       <Text ml={1.5}>Magazine</Text>
+                    </MenuItem>
+                  </Anchor>
+                  <Anchor href="/website">
+                    <MenuItem>
+                      <CgWebsite />
+                      <Text ml={1.5}>Website</Text>
                     </MenuItem>
                   </Anchor>
                   <Anchor href="https://github.com/cattynip/seolibdesign">
