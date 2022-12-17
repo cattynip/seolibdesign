@@ -1,14 +1,15 @@
 import { NextPage } from 'next';
 import DashboardLayout from '@components/layouts/DashboardLayout';
 import { IProjectCard } from '@components/ProjectCard';
-import ProjectsData from '@data/magazineData';
+import MagazineProjectData from '@data/magazineData';
+import Separator from '@components/Separator';
+import SectionTop from '@components/section/SectionTop';
 
 const Home: NextPage = () => {
-  const projectData = ProjectsData;
   const projectDatas: IProjectCard[] = [];
 
-  for (const key in projectData.data) {
-    const currentData = projectData.data[key];
+  for (const key in MagazineProjectData.data) {
+    const currentData = MagazineProjectData.data[key];
 
     projectDatas.push({
       title: currentData.name,
@@ -22,11 +23,16 @@ const Home: NextPage = () => {
   }
 
   return (
-    <DashboardLayout
-      title={ProjectsData.title}
-      description={ProjectsData.description}
-      projects={projectDatas}
-    />
+    <>
+      <SectionTop
+        title={MagazineProjectData.title + ' Project'}
+        description={MagazineProjectData.description}
+      />
+
+      <Separator />
+
+      <DashboardLayout projects={projectDatas} />
+    </>
   );
 };
 
