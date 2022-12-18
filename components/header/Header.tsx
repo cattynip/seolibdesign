@@ -19,6 +19,9 @@ import { CgWebsite } from 'react-icons/cg';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import Anchor from '@components/Anchor';
+import { HiHomeModern } from 'react-icons/hi2';
+import ProjectIcon from '@components/ProjectIcon';
+import HeaderMenuItem from './HeaderMenuItem';
 
 const Header = () => {
   const router = useRouter();
@@ -54,7 +57,7 @@ const Header = () => {
             position={'relative'}
           >
             <Stack
-              width={{ base: 'full', md: 'auto' }}
+              width="full"
               mt={{ base: 5, md: 0 }}
               flexGrow={1}
               flexDir="row"
@@ -79,6 +82,12 @@ const Header = () => {
                 pathName={router.pathname}
                 icon="website"
                 text="Website"
+              />
+              <HeaderLinkItem
+                href="/house"
+                pathName={router.pathname}
+                icon="house"
+                text="House"
               />
               <HeaderLinkItem
                 href="https://github.com/cattynip/seolibdesign"
@@ -118,31 +127,41 @@ const Header = () => {
                     <HamburgerIcon />
                   </Box>
                 </MenuButton>
-                <MenuList bg={useColorModeValue('gray.300', 'blackAlpha.800')}>
-                  <Anchor href={'/'}>
-                    <MenuItem>
-                      <IoHome />
-                      <Text ml={1.5}>Home</Text>
-                    </MenuItem>
-                  </Anchor>
-                  <Anchor href="/magazine">
-                    <MenuItem>
-                      <IoNewspaper />
-                      <Text ml={1.5}>Magazine</Text>
-                    </MenuItem>
-                  </Anchor>
-                  <Anchor href="/website">
-                    <MenuItem>
-                      <CgWebsite />
-                      <Text ml={1.5}>Website</Text>
-                    </MenuItem>
-                  </Anchor>
-                  <Anchor href="https://github.com/cattynip/seolibdesign">
-                    <MenuItem>
-                      <IoLogoGithub />
-                      <Text ml={1.5}>Source</Text>
-                    </MenuItem>
-                  </Anchor>
+                <MenuList
+                  bg={useColorModeValue('gray.300', 'blackAlpha.800')}
+                  p={0}
+                  borderWidth={1}
+                >
+                  <HeaderMenuItem
+                    href="/"
+                    iconType="home"
+                    text="Home"
+                    index={1}
+                  />
+                  <HeaderMenuItem
+                    href="/magazine"
+                    iconType="magazine"
+                    text="Magazine"
+                    index={2}
+                  />
+                  <HeaderMenuItem
+                    href="/website"
+                    iconType="website"
+                    text="Website"
+                    index={3}
+                  />
+                  <HeaderMenuItem
+                    href="/house"
+                    iconType="house"
+                    text="House"
+                    index={4}
+                  />
+                  <HeaderMenuItem
+                    href="https://github.com/cattynip/seolibdesign"
+                    iconType="github"
+                    text="GitHub"
+                    index={5}
+                  />
                 </MenuList>
               </Menu>
             </Box>
