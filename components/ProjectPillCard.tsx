@@ -7,12 +7,12 @@ import {
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Description from './Description';
-import ProjectIcon from './ProjectIcon';
+import ProjectIcon, { TIconType } from './ProjectIcon';
 
 interface IProjectPillCard {
   title: string;
   description: string;
-  iconType: string;
+  iconType: TIconType;
   isAvailable: boolean;
   isEven: boolean;
 }

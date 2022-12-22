@@ -1,13 +1,13 @@
 import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Anchor from '@components/Anchor';
-import ProjectIcon from '@components/ProjectIcon';
+import ProjectIcon, { TIconType } from '@components/ProjectIcon';
 import { compareRouter } from '@libs/math';
 import { motion } from 'framer-motion';
 import { HTMLAttributeAnchorTarget } from 'react';
 
 interface INavigationElement {
   href: string;
-  icon: string;
+  icon: TIconType;
   text: string;
   target?: HTMLAttributeAnchorTarget;
   pathName: string;
