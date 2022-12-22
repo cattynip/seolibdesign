@@ -16,9 +16,8 @@ export interface IWebsiteData {
 const WebsiteProjectData: IProjectData<IWebsiteData> = {
   title: 'Website',
   description:
-    'This project is to build and develop a beautiful website to show what I have done in Design 8B class. Unlike others, I did not build this website based on the platform called "Weebly" which Mr. Gunn recommended. Let\'s go to know why I did.',
-  shortDescription:
-    'The project to design and develop the magazine for the client.',
+    '`Website Project` is to build and deploy a beautiful website to show what I have done in Design 8B class. Unlike others, I did not build this website based on the platform called "Weebly" which Mr. Gunn recommended. Let\'s go to know why I did.',
+  shortDescription: 'The project to build and deploy the website for showing.',
   link: '/website',
   iconType: 'website',
   finished: true,
@@ -39,7 +38,7 @@ const WebsiteProjectData: IProjectData<IWebsiteData> = {
       datas: [
         {
           content:
-            'At the first time when I had to create a website based on the platform called "Weebly" since it was my assignment, I thought a website that was created by Weebly has no difference from just a document page. The reason why I thought like that is that the websites which were created by Weebly do not have any animations or characteristics that most websites should have generally. Additionally, that platform is too hard to control the HTML DOM Elements organically. So, I decided to build a website to make differences to the other student\'s websites and asked to to build a website indiviually for my design class teacher.'
+            'At the first time when I had to create a website based on the platform called "Weebly" since it was my assignment, I thought a website that was created by Weebly has no difference from just a document page. The reason why I thought like that is that the websites which were created by Weebly do not have any animations or characteristics that most websites should have generally. Additionally, that platform is too hard to control the HTML DOM Elements organically. So, I decided to build a website to make differences to the other student\'s websites and asked to build a website indiviually for my design class teacher.'
         }
       ]
     },
@@ -49,7 +48,7 @@ const WebsiteProjectData: IProjectData<IWebsiteData> = {
       datas: [
         {
           content:
-            'So many people, including even my mom and dad, always say that I have been using templates when they see the websites that I have built. Whenever I heard like that I was sad because they ignore my effort to my results in a short time without trying to evaluate them. That is the same why as why I add the "GitHub" link, commit, make a branch and merge the result whenever I am done with something. Mr. Gunn, please trust me. This website is made from my fingertips.'
+            'So many people, including even my mom and dad, always say that I have been using templates when they see the websites that I have built. Whenever I heard, I was sad because they ignore my effort to my results in a short time without trying to evaluate them. That is why I added the "GitHub" link, committed, made a branch and merge them to show the result whenever I am done with something. Mr. Gunn, please trust me. This website is made from my fingertips. Or See the COMMIT HISTORY on this GitHub page! As you can see, writer of all commits is me and I commited everyday!'
         }
       ]
     },
