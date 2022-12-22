@@ -7,12 +7,12 @@ import {
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Description from './Description';
-import ProjectIcon from './ProjectIcon';
+import ProjectIcon, { TIconType } from './ProjectIcon';
 
 interface IProjectPillCard {
   title: string;
   description: string;
-  iconType: string;
+  iconType: TIconType;
   isAvailable: boolean;
   isEven: boolean;
 }
@@ -68,6 +68,8 @@ const ProjectPillCard = ({
           flexDir={isEven ? 'row' : 'row-reverse'}
           experimental_spaceX={7}
           p={2}
+          pl={isEven ? 2 : 14}
+          pr={isEven ? 14 : 2}
           mb={4}
           zIndex={-1}
           filter={isAvailable ? 'blur(0px)' : 'blur(10px)'}
@@ -120,6 +122,7 @@ const ProjectPillCard = ({
                   : undefined
               }
               cursor={isAvailable ? 'default' : 'not-allowed'}
+              textAlign={isEven ? 'left' : 'right'}
             />
           </Box>
         </Box>

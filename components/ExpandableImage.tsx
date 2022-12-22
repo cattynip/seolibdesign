@@ -11,6 +11,8 @@ export const ImageHeight = (ImageWidth * 4) / 3;
 
 interface IExpandableImage {
   url: string;
+  expandable?: boolean;
+  id?: string;
   children?: React.ReactNode;
   alt?: string;
   appearDirection?: appearDirectionType;
@@ -19,6 +21,8 @@ interface IExpandableImage {
 
 const ExpandableImage = ({
   url,
+  expandable = true,
+  id,
   children,
   alt,
   appearDirection = 'top',
@@ -31,7 +35,7 @@ const ExpandableImage = ({
     <>
       <Img
         as={motion.img}
-        layoutId={url}
+        layoutId={expandable ? url + id : undefined}
         src={url}
         alt={alt}
         initial={{
@@ -59,20 +63,24 @@ const ExpandableImage = ({
             type: 'spring'
           }
         }}
-        whileHover={{
-          borderRadius: '3%',
-          scale: [1, 0.95, 1.75, 1.7],
-          zIndex: [0, 0, 0, 10],
-          transition: {
-            type: 'spring',
-            duration: 0.5
-          }
-        }}
-        cursor="pointer"
+        whileHover={
+          expandable
+            ? {
+                borderRadius: '3%',
+                scale: [1, 0.95, 1.75, 1.7],
+                zIndex: [0, 0, 0, 10],
+                transition: {
+                  type: 'spring',
+                  duration: 0.5
+                }
+              }
+            : {}
+        }
+        cursor={expandable ? 'pointer' : 'default'}
         onClick={() => setIsOverlayShown(true)}
         {...props}
       />
-      {isOverlayShown ? (
+      {isOverlayShown && expandable ? (
         <Overlay onClick={() => setIsOverlayShown(false)}>
           <Box
             position="fixed"

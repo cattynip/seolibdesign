@@ -108,7 +108,7 @@ export const MagazineDataBack: IMagazineData = {
 const MagazineProjectData: IProjectData<IMagazineData> = {
   title: 'Magazine',
   description:
-    'This is a project which is to develop and design the perfect magazine what my client want to make. For this, I had made 3 initial, 2 intermediate and last one final drafts for each sections which are Cover, Middle(Main) and Back pages.',
+    '`Magazine Project` is to design and develop a perfect magazine that my client wants to make. For this, I made 3 initial, 2 intermediate and last one final drafts for each section which are the Cover, Middle(Main) and Back pages.',
   shortDescription:
     'The project to design and develop the magazine for the client.',
   link: '/magazine',
