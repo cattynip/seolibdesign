@@ -1,11 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import { AnimatePresence } from 'framer-motion';
 import Anchor from './Anchor';
+import { TIconType } from './ProjectIcon';
 import ProjectPillCard from './ProjectPillCard';
 
 export interface Project {
   linkTo: string;
-  iconType: string;
+  iconType: TIconType;
   title: string;
   description: string;
   available: boolean;
