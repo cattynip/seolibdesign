@@ -1,3 +1,5 @@
+import { TIconType } from '@components/ProjectIcon';
+import HolidayHouseData from './holidayHouseData';
 import MagazineProjectData from './magazineData';
 import WebsiteProjectData from './websiteData';
 
@@ -16,7 +18,7 @@ export interface IProjectData<T = any> {
   description: string;
   shortDescription: string;
   link: string;
-  iconType: string;
+  iconType: TIconType;
   finished: boolean;
   data: IProjectDataEnum<T>;
 }

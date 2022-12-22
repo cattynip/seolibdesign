@@ -2,8 +2,10 @@ import { IoHome, IoLogoGithub, IoNewspaper } from 'react-icons/io5';
 import { CgWebsite } from 'react-icons/cg';
 import { HiHomeModern } from 'react-icons/hi2';
 
+export type TIconType = 'home' | 'magazine' | 'website' | 'house' | 'github';
+
 interface IProjectIcon {
-  iconType: string;
+  iconType: TIconType;
   size?: number;
 }
 
