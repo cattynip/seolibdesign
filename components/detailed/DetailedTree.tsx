@@ -18,8 +18,6 @@ interface IDetailedTree {
 const DetailedTree = ({
   stageType,
   images,
-  section,
-  changeVariableFn,
   ...props
 }: IDetailedTree & BoxProps) => {
   const backgroundColor = useColorModeValue('#f0e7db', '#202023');

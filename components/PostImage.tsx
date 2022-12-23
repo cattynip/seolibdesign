@@ -10,12 +10,7 @@ interface IPostImage {
 const PostImage = ({ url, explaination, ...props }: IPostImage & ImgProps) => {
   return (
     <>
-      <ExpandableImage
-        url={url}
-        appearDirection="left"
-        expandable={false}
-        {...props}
-      />
+      <ExpandableImage url={url} expandable={false} {...props} />
       <Description description={'↑ ' + explaination} />
     </>
   );

@@ -2,7 +2,7 @@ import { AspectRatio, Box, Img, ImgProps } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Overlay from '@components/Overlay';
 import React, { useState } from 'react';
-import ExpandableBox, { appearDirectionType } from './ExpandableBox';
+import ExpandableBox from './ExpandableBox';
 
 export const ImageWidth = 130;
 export const ImageHeight = (ImageWidth * 4) / 3;
@@ -13,8 +13,6 @@ interface IExpandableImage {
   id?: string;
   children?: React.ReactNode;
   alt?: string;
-  appearDirection?: appearDirectionType;
-  appearTime?: number;
 }
 
 const ExpandableImage = ({
@@ -22,8 +20,6 @@ const ExpandableImage = ({
   id,
   alt,
   expandable = true,
-  appearDirection = 'top',
-  appearTime = 2,
   ...props
 }: IExpandableImage & ImgProps) => {
   const [isOverlayShown, setIsOverlayShown] = useState<boolean>(false);
@@ -31,8 +27,12 @@ const ExpandableImage = ({
   return (
     <>
       <ExpandableBox
-        id={url + id + alt + expandable + appearDirection + appearTime}
-        appearDirection={appearDirection}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        hoverAnimation={expandable ? true : false}
+        id={url + id + alt + expandable}
+        appearDirection={'top'}
         appearDuration={1}
         appearDelay={2}
       >
@@ -63,9 +63,7 @@ const ExpandableImage = ({
             >
               <Img
                 as={motion.img}
-                layoutId={
-                  url + id + alt + expandable + appearDirection + appearTime
-                }
+                layoutId={url + id + alt + expandable}
                 mx={'auto'}
                 width="100%"
                 src={url}

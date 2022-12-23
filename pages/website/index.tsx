@@ -1,11 +1,11 @@
 import PostLayout from '@components/layouts/PostLayout';
 import SectionTop from '@components/section/SectionTop';
 import Separator from '@components/Separator';
-import WebsiteProjectData, { IWebsiteData } from '@data/websiteData';
+import WebsiteProjectData, { IPostData } from '@data/websiteData';
 import { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  const projectDatas: IWebsiteData[] = [];
+  const projectDatas: IPostData[] = [];
 
   for (const key in WebsiteProjectData.data) {
     const currentData = WebsiteProjectData.data[key];
