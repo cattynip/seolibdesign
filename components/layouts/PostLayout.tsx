@@ -1,12 +1,14 @@
-import { Box, Heading, Stack, Text } from '@chakra-ui/react';
+import { AspectRatio, Box, Heading, Stack } from '@chakra-ui/react';
 import Description from '@components/Description';
+import PostElement from '@components/PostElement';
 import PostImage from '@components/PostImage';
 import Section from '@components/Section';
 import Separator from '@components/Separator';
-import { IWebsiteData } from '@data/websiteData';
+import ThreeDModel from '@components/ThreeDModel';
+import { IPostData } from '@data/websiteData';
 
 interface IPostLayout {
-  datas: IWebsiteData[];
+  datas: IPostData[];
 }
 
 const PostLayout = ({ datas }: IPostLayout) => {
@@ -44,27 +46,25 @@ const PostLayout = ({ datas }: IPostLayout) => {
                         </Heading>
                       ) : null}
                       {content.content ? (
-                        <Text>{content.content}</Text>
+                        <PostElement>{content.content}</PostElement>
                       ) : content.image ? (
-                        <Stack
-                          display="flex"
-                          flexDir={'column'}
-                          alignItems="center"
-                          justifyContent={'center'}
-                        >
-                          <PostImage
-                            url={content.image.src}
-                            explaination={content.image.explaination}
-                            key={idx}
-                            width={'70%'}
-                          />
-                        </Stack>
+                        <PostImage
+                          url={content.image.src}
+                          explaination={content.image.explaination}
+                          key={idx}
+                          width={'50%'}
+                        />
+                      ) : content.threeD ? (
+                        <PostElement description={content.threeD.explaination}>
+                          <AspectRatio ratio={16 / 9}>
+                            <ThreeDModel src={content.threeD.src} />
+                          </AspectRatio>
+                        </PostElement>
                       ) : null}
                     </Box>
                   </Section>
                 ))}
               </Box>
-
               <Separator />
             </Box>
           ))}
