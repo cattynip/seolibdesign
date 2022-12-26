@@ -4,6 +4,7 @@ import PostElement from '@components/PostElement';
 import PostImage from '@components/PostImage';
 import Section from '@components/Section';
 import Separator from '@components/Separator';
+import Gallery from '@components/Gallery';
 import ThreeDModel from '@components/ThreeDModel';
 import { IPostData } from '@data/websiteData';
 
@@ -59,6 +60,10 @@ const PostLayout = ({ datas }: IPostLayout) => {
                           <AspectRatio ratio={16 / 9}>
                             <ThreeDModel src={content.threeD.src} />
                           </AspectRatio>
+                        </PostElement>
+                      ) : content.gallery ? (
+                        <PostElement description={content.gallery.explaination}>
+                          <Gallery images={content.gallery.src} />
                         </PostElement>
                       ) : null}
                     </Box>
