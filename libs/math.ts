@@ -121,3 +121,7 @@ export function makeOrdinalNumbers(number: number): string {
 
   return string;
 }
+
+export function changeToAngle(angle: number): number {
+  return (angle * Math.PI) / 180;
+}
