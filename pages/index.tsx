@@ -10,6 +10,7 @@ import ProjectsData from '@data/data';
 const Home: NextPage = () => {
   const projects: Project[] = [];
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   for (const [_key, value] of Object.entries(ProjectsData)) {
     projects.push({
       linkTo: value.link,

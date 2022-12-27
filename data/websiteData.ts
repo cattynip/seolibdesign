@@ -1,19 +1,28 @@
 import { IProjectData } from './data';
 
-export interface IWebsiteData {
+export interface INonTexts<T> {
+  src: T;
+  explaination: string;
+}
+
+export interface IThreeD {
+  mtlSrc: string;
+  objSrc: string;
+}
+
+export interface IPostData {
   title: string;
   shortDescription: string;
   datas: {
     sectionTitle?: string;
     content?: string;
-    image?: {
-      src: string;
-      explaination: string;
-    };
+    image?: INonTexts<string>;
+    gallery?: INonTexts<string[]>;
+    threeD?: INonTexts<IThreeD>;
   }[];
 }
 
-const WebsiteProjectData: IProjectData<IWebsiteData> = {
+const WebsiteProjectData: IProjectData<IPostData> = {
   title: 'Website',
   description:
     '`Website Project` is to build and deploy a beautiful website to show what I have done in Design 8B class. Unlike others, I did not build this website based on the platform called "Weebly" which Mr. Gunn recommended. Let\'s go to know why I did.',

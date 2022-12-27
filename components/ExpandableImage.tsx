@@ -1,10 +1,9 @@
-import { AspectRatio, Box, Img, ImgProps } from '@chakra-ui/react';
-import { getRandomNumber } from '@libs/math';
+import { AspectRatio, Box, Img } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Overlay from '@components/Overlay';
 import React, { useState } from 'react';
-
-type appearDirectionType = 'top' | 'left' | 'bottom' | 'right';
+import ExpandableBox from './ExpandableBox';
+import * as CSS from 'csstype';
 
 export const ImageWidth = 130;
 export const ImageHeight = (ImageWidth * 4) / 3;
@@ -15,71 +14,62 @@ interface IExpandableImage {
   id?: string;
   children?: React.ReactNode;
   alt?: string;
-  appearDirection?: appearDirectionType;
-  appearTime?: number;
+  width?: CSS.Property.Width | number;
+  height?: CSS.Property.Height | number;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  display?: any;
+  borderLeftRadius?:
+    | CSS.Property.BorderTopLeftRadius
+    | CSS.Property.BorderBottomLeftRadius;
+  position?: CSS.Property.Position;
+  top?: CSS.Property.Top | number;
+  left?: CSS.Property.Left | number;
+  shadow?: CSS.Property.BoxShadow;
+  zIndex?: CSS.Property.ZIndex;
 }
 
 const ExpandableImage = ({
   url,
-  expandable = true,
   id,
-  children,
   alt,
-  appearDirection = 'top',
-  appearTime = 2,
-  ...props
-}: IExpandableImage & ImgProps) => {
+  expandable = true,
+  width,
+  height,
+  display,
+  borderLeftRadius,
+  position,
+  top,
+  left,
+  shadow
+}: IExpandableImage) => {
   const [isOverlayShown, setIsOverlayShown] = useState<boolean>(false);
 
   return (
     <>
-      <Img
-        as={motion.img}
-        layoutId={expandable ? url + id : undefined}
-        src={url}
-        alt={alt}
-        initial={{
-          scale: 1,
-          y:
-            appearDirection === 'top'
-              ? -2000
-              : appearDirection === 'bottom'
-              ? 2000
-              : 0,
-          x:
-            appearDirection === 'left'
-              ? -2000
-              : appearDirection === 'right'
-              ? 2000
-              : 0
-        }}
-        animate={{
-          y: 0,
-          x: 0,
-          transition: {
-            delay: getRandomNumber(1, appearTime, false),
-            bounce: 0.25,
-            duration: 1,
-            type: 'spring'
-          }
-        }}
-        whileHover={
-          expandable
-            ? {
-                borderRadius: '3%',
-                scale: [1, 0.95, 1.75, 1.7],
-                zIndex: [0, 0, 0, 10],
-                transition: {
-                  type: 'spring',
-                  duration: 0.5
-                }
-              }
-            : {}
-        }
-        cursor={expandable ? 'pointer' : 'default'}
-        onClick={() => setIsOverlayShown(true)}
-        {...props}
-      />
+      <ExpandableBox
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        hoverAnimation={expandable ? true : false}
+        id={url + id + alt + expandable}
+        appearDirection={'top'}
+        appearDuration={1}
+        appearDelay={2}
+      >
+        <Img
+          src={url}
+          cursor={expandable ? 'pointer' : 'default'}
+          onClick={() => setIsOverlayShown(true)}
+          width={width ? width : 'auto'}
+          height={height ? height : 'auto'}
+          display={display ? display : 'auto'}
+          borderLeftRadius={borderLeftRadius ? borderLeftRadius : 'auto'}
+          position={position ? position : 'inherit'}
+          top={top ? top : 'inherit'}
+          left={left ? left : 'inherit'}
+          shadow={shadow ? shadow : 'none'}
+        />
+      </ExpandableBox>
       {isOverlayShown && expandable ? (
         <Overlay onClick={() => setIsOverlayShown(false)}>
           <Box
@@ -97,16 +87,20 @@ const ExpandableImage = ({
               width="container.md"
               mx="auto"
             >
-              <>
-                <Img
-                  as={motion.img}
-                  layoutId={url}
-                  mx={'auto'}
-                  width="100%"
-                  src={url}
-                  {...props}
-                />
-              </>
+              <Img
+                as={motion.img}
+                layoutId={url + id + alt + expandable}
+                mx={'auto'}
+                width="100%"
+                height={height ? height : 'auto'}
+                borderLeftRadius={borderLeftRadius ? borderLeftRadius : 'auto'}
+                position={position ? position : 'inherit'}
+                top={top ? top : 'inherit'}
+                left={left ? left : 'inherit'}
+                shadow={shadow ? shadow : 'none'}
+                src={url}
+                zIndex={10}
+              />
             </AspectRatio>
           </Box>
         </Overlay>
