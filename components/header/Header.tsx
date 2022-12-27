@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Container,
   Heading,
   Menu,
@@ -98,10 +97,11 @@ const Header = () => {
             <Box display={{ base: 'inline', md: 'none' }}>
               <Menu isLazy>
                 <MenuButton
-                  as={Button}
                   transition="all 0.2s"
                   bg={useColorModeValue('#bfbfbf', 'blackAlpha.50')}
                   textColor={useColorModeValue('black', 'white')}
+                  width={10}
+                  height={10}
                   borderRightRadius="full"
                   borderLeftRadius="none"
                   borderWidth={1}

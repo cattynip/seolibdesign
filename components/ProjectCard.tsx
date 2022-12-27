@@ -5,7 +5,6 @@ import {
   Text,
   Link,
   useColorModeValue,
-  Flex,
   BoxProps
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -38,7 +37,7 @@ const ProjectCard = ({
           borderRadius="lg"
           style={{ textDecoration: 'none' }}
         >
-          <Box as={Flex}>
+          <Box display="flex">
             <ExpandableImage
               url={imageUrl}
               height={250}
