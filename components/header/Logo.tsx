@@ -1,4 +1,4 @@
-import { Img, Text, useColorModeValue } from '@chakra-ui/react';
+import { Img, useColorModeValue } from '@chakra-ui/react';
 import Link from 'next/link';
 
 const Logo = () => {

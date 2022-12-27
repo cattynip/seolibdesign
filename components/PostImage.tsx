@@ -12,6 +12,7 @@ const PostImage = ({ url, explaination, ...props }: IPostImage & ImgProps) => {
   return (
     <PostElement description={explaination}>
       <ExpandableImage url={url} expandable={false} {...props} />
+      <Description description={'↑ ' + explaination} />
     </PostElement>
   );
 };

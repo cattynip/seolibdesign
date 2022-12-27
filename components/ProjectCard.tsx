@@ -1,6 +1,5 @@
 import {
   Heading,
-  Img,
   Container,
   Box,
   Text,

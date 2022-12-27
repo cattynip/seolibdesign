@@ -19,6 +19,7 @@ export function getImageMore(howMany?: number): string[] {
   return returnArray;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function fillImageUrls(array: any[]): string[] {
   for (let i = 0; i < AllImageType.length; i++) {
     const currentImageType = AllImageType[i];

@@ -12,6 +12,7 @@ export interface IProjectDataEnum<T> {
   [key: string]: T;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface IProjectData<T = any> {
   title: string;
   description: string;
