@@ -1,10 +1,6 @@
 import { AspectRatio, Box, Img } from '@chakra-ui/react';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import { useState } from 'react';
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill
-} from 'react-icons/bs';
 import GalleryButton from './GalleryButton';
 
 interface ISpaceImages {

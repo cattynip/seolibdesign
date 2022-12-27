@@ -70,7 +70,6 @@ const DetailedTree = ({
             textAlign="center"
             fontSize="lg"
             pb={3}
-            color={{}}
             description={firstCapitalize(stageType)}
           />
         </Container>

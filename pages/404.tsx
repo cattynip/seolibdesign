@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     setTimeout(() => {
       router.push('/');
     }, 5000);
-  }, []);
+  });
 
   return (
     <>

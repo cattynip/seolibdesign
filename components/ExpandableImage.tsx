@@ -1,8 +1,9 @@
-import { AspectRatio, Box, Img, ImgProps } from '@chakra-ui/react';
+import { AspectRatio, Box, Img } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Overlay from '@components/Overlay';
 import React, { useState } from 'react';
 import ExpandableBox from './ExpandableBox';
+import * as CSS from 'csstype';
 
 export const ImageWidth = 130;
 export const ImageHeight = (ImageWidth * 4) / 3;
@@ -13,6 +14,18 @@ interface IExpandableImage {
   id?: string;
   children?: React.ReactNode;
   alt?: string;
+  width?: CSS.Property.Width | number;
+  height?: CSS.Property.Height | number;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  display?: any;
+  borderLeftRadius?:
+    | CSS.Property.BorderTopLeftRadius
+    | CSS.Property.BorderBottomLeftRadius;
+  position?: CSS.Property.Position;
+  top?: CSS.Property.Top | number;
+  left?: CSS.Property.Left | number;
+  shadow?: CSS.Property.BoxShadow;
+  zIndex?: CSS.Property.ZIndex;
 }
 
 const ExpandableImage = ({
@@ -20,8 +33,15 @@ const ExpandableImage = ({
   id,
   alt,
   expandable = true,
-  ...props
-}: IExpandableImage & ImgProps) => {
+  width,
+  height,
+  display,
+  borderLeftRadius,
+  position,
+  top,
+  left,
+  shadow
+}: IExpandableImage) => {
   const [isOverlayShown, setIsOverlayShown] = useState<boolean>(false);
 
   return (
@@ -40,7 +60,14 @@ const ExpandableImage = ({
           src={url}
           cursor={expandable ? 'pointer' : 'default'}
           onClick={() => setIsOverlayShown(true)}
-          {...props}
+          width={width ? width : 'auto'}
+          height={height ? height : 'auto'}
+          display={display ? display : 'auto'}
+          borderLeftRadius={borderLeftRadius ? borderLeftRadius : 'auto'}
+          position={position ? position : 'inherit'}
+          top={top ? top : 'inherit'}
+          left={left ? left : 'inherit'}
+          shadow={shadow ? shadow : 'none'}
         />
       </ExpandableBox>
       {isOverlayShown && expandable ? (
@@ -65,9 +92,14 @@ const ExpandableImage = ({
                 layoutId={url + id + alt + expandable}
                 mx={'auto'}
                 width="100%"
+                height={height ? height : 'auto'}
+                borderLeftRadius={borderLeftRadius ? borderLeftRadius : 'auto'}
+                position={position ? position : 'inherit'}
+                top={top ? top : 'inherit'}
+                left={left ? left : 'inherit'}
+                shadow={shadow ? shadow : 'none'}
                 src={url}
                 zIndex={10}
-                {...props}
               />
             </AspectRatio>
           </Box>

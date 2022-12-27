@@ -1,26 +1,18 @@
 import {
   Box,
-  Button,
   Container,
   Heading,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
   Stack,
-  Text,
   useColorModeValue
 } from '@chakra-ui/react';
 import ThemeChanger from '@components/ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Logo from './Logo';
-import { IoHome, IoNewspaper, IoLogoGithub } from 'react-icons/io5';
-import { CgWebsite } from 'react-icons/cg';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
-import Anchor from '@components/Anchor';
-import { HiHomeModern } from 'react-icons/hi2';
-import ProjectIcon from '@components/ProjectIcon';
 import HeaderMenuItem from './HeaderMenuItem';
 
 const Header = () => {
@@ -105,10 +97,11 @@ const Header = () => {
             <Box display={{ base: 'inline', md: 'none' }}>
               <Menu isLazy>
                 <MenuButton
-                  as={Button}
                   transition="all 0.2s"
                   bg={useColorModeValue('#bfbfbf', 'blackAlpha.50')}
                   textColor={useColorModeValue('black', 'white')}
+                  width={10}
+                  height={10}
                   borderRightRadius="full"
                   borderLeftRadius="none"
                   borderWidth={1}

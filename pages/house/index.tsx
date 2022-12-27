@@ -1,6 +1,4 @@
-import Gallery from '@components/Gallery';
 import PostLayout from '@components/layouts/PostLayout';
-import PostElement from '@components/PostElement';
 import SectionTop from '@components/section/SectionTop';
 import Separator from '@components/Separator';
 import HolidayHouseData from '@data/holidayHouseData';

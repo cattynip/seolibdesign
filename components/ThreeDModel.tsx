@@ -20,13 +20,11 @@ const Scene = ({ src }: IThreeDModel) => {
     loader.setMaterials(materials);
   });
 
-  useFrame((state, delta) => {
-    // eslint-disable Parsing error: Argument expression expected
+  useFrame((_state, delta) => {
     modelObject.rotation.z += delta / 10;
   });
 
   useEffect(() => {
-    // eslint-disable Parsing error: Argument expression expected
     modelObject.scale.set(1, 1, 1);
     modelObject.rotation.set(changeToAngle(-90), 0, changeToAngle(-90), 'XYZ');
   }, [modelObject]);
