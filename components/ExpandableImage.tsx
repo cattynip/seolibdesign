@@ -38,7 +38,6 @@ const ExpandableImage = ({
       >
         <Img
           src={url}
-          alt={alt}
           cursor={expandable ? 'pointer' : 'default'}
           onClick={() => setIsOverlayShown(true)}
           {...props}
