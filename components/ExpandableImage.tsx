@@ -50,7 +50,7 @@ const ExpandableImage = ({
         display="flex"
         alignItems="center"
         justifyContent="center"
-        hoverAnimation={expandable ? true : false}
+        hoverAnimation={expandable}
         id={url + id + alt + expandable}
         appearDirection={'top'}
         appearDuration={1}
@@ -62,7 +62,7 @@ const ExpandableImage = ({
           onClick={() => setIsOverlayShown(true)}
           width={width ? width : 'auto'}
           height={height ? height : 'auto'}
-          display={display ? display : 'auto'}
+          display={display ? display : 'block'}
           borderLeftRadius={borderLeftRadius ? borderLeftRadius : 'auto'}
           position={position ? position : 'inherit'}
           top={top ? top : 'inherit'}

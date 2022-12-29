@@ -70,6 +70,9 @@ const DetailedTree = ({
             textAlign="center"
             fontSize="lg"
             pb={3}
+            colors={{
+              hovered: 'black'
+            }}
             description={firstCapitalize(stageType)}
           />
         </Container>
@@ -86,22 +89,22 @@ const DetailedTree = ({
               return (
                 <Box
                   key={index}
-                  position="relative"
+                  position={'relative'}
                   width={ImageWidth}
                   height={ImageHeight}
                 >
-                  {value.map((value, index) => {
-                    const isOdd = index % 2 !== 0;
+                  {value.map((value, idx) => {
+                    const isOdd = idx % 2 !== 0;
 
                     return (
                       <ExpandableImage
                         url={value}
-                        key={index}
-                        position={'absolute'}
+                        key={idx}
+                        position="absolute"
+                        top={isOdd ? 8 : 1}
+                        left={isOdd ? 7 : 0}
                         width={ImageWidth}
                         height={ImageHeight}
-                        top={isOdd ? 5 : 0}
-                        left={isOdd ? 5 : 0}
                         shadow="2xl"
                         zIndex={isOdd ? 1 : 2}
                       />

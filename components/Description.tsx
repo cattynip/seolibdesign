@@ -4,8 +4,8 @@ import * as CSS from 'csstype';
 interface IDescription {
   description?: string;
   colors?: {
-    unHovered: string;
-    hovered: string;
+    unHovered?: string;
+    hovered?: string;
   };
   cursor?: CSS.Property.Cursor;
   textAlign?: CSS.Property.TextAlign;
