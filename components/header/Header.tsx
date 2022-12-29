@@ -14,6 +14,8 @@ import Logo from './Logo';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import HeaderMenuItem from './HeaderMenuItem';
+import ProjectsData from '@data/data';
+import { firstCapitalize } from '@libs/math';
 
 const Header = () => {
   const router = useRouter();
@@ -63,24 +65,15 @@ const Header = () => {
                 icon="home"
                 text="Home"
               />
-              <HeaderLinkItem
-                href="/magazine"
-                pathName={router.pathname}
-                icon="magazine"
-                text="Magazine"
-              />
-              <HeaderLinkItem
-                href="/website"
-                pathName={router.pathname}
-                icon="website"
-                text="Website"
-              />
-              <HeaderLinkItem
-                href="/house"
-                pathName={router.pathname}
-                icon="house"
-                text="House"
-              />
+              {Object.values(ProjectsData).map((value, idx) => (
+                <HeaderLinkItem
+                  key={idx}
+                  href={value.link}
+                  pathName={router.pathname}
+                  icon={value.iconType}
+                  text={firstCapitalize(value.iconType)}
+                />
+              ))}
               <HeaderLinkItem
                 href="https://github.com/cattynip/seolibdesign"
                 pathName={router.pathname}

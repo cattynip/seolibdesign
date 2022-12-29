@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { AnimatePresence } from 'framer-motion';
+import ProjectsData from '@data/data';
 import Anchor from './Anchor';
 import { TIconType } from './ProjectIcon';
 import ProjectPillCard from './ProjectPillCard';
@@ -12,37 +12,23 @@ export interface Project {
   available: boolean;
 }
 
-interface IProjects {
-  projects: Project[];
-}
-
-const Projects = ({ projects }: IProjects) => {
+const Projects = () => {
   return (
-    <AnimatePresence>
-      {projects.map((value, idx) => (
+    <>
+      {Object.values(ProjectsData).map((value, idx) => (
         <Box key={idx}>
-          {value.available ? (
-            <Anchor href={value.linkTo}>
-              <ProjectPillCard
-                title={value.title}
-                description={value.description}
-                iconType={value.iconType}
-                isAvailable={value.available}
-                isEven={idx % 2 === 0}
-              />
-            </Anchor>
-          ) : (
+          <Anchor href={value.link}>
             <ProjectPillCard
               title={value.title}
-              description={value.description}
+              description={value.shortDescription}
               iconType={value.iconType}
-              isAvailable={value.available}
+              isAvailable={value.finished}
               isEven={idx % 2 === 0}
             />
-          )}
+          </Anchor>
         </Box>
       ))}
-    </AnimatePresence>
+    </>
   );
 };
 
