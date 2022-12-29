@@ -14,6 +14,8 @@ interface IDescription {
   width?: CSS.Property.Width;
   maxW?: CSS.Property.MaxWidth;
   transitionDuration?: CSS.Property.TransitionDuration;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  display?: CSS.Property.Display | any;
 }
 
 const Description = ({
@@ -25,7 +27,8 @@ const Description = ({
   pb,
   width,
   maxW,
-  transitionDuration
+  transitionDuration,
+  display
 }: IDescription) => {
   const descriptionColor = useColorModeValue('gray.600', 'whiteAlpha.700');
   const descriptionHoverColor = useColorModeValue('black', 'whiteAlpha.900');
@@ -43,6 +46,7 @@ const Description = ({
       maxW={maxW ? maxW : 'auto'}
       transitionDuration={transitionDuration ? transitionDuration : '500ms'}
       _hover={{ textColor: colors ? colors.hovered : descriptionHoverColor }}
+      display={display ? display : 'block'}
     >
       {description}
     </Text>

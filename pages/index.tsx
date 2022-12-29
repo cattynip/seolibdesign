@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         <Box
           width={'100%'}
           display={'flex'}
-          flexDir={{ md: 'row', sm: 'column-reverse' }}
+          flexDir={{ base: 'column-reverse', md: 'row' }}
           justifyContent={'space-between'}
           alignItems={{ md: 'center', sm: 'flex-start' }}
         >
@@ -78,7 +78,7 @@ const Home: NextPage = () => {
               shadow="2xl"
               src="/me.jpeg"
               borderRadius={'full'}
-              mb={{ md: 0, sm: 7 }}
+              mb={{ base: 7, md: 0 }}
               mx={'auto'}
               width={{ md: 'auto', sm: '40%' }}
             />
