@@ -14,6 +14,7 @@ import Logo from '@components/logo/Logo';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import HeaderMenuItem from './HeaderMenuItem';
+import { AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const router = useRouter();
