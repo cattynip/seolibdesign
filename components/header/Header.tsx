@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import ThemeChanger from '@components/ThemeChanger';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import Logo from './Logo';
+import Logo from '@components/logo/Logo';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import HeaderMenuItem from './HeaderMenuItem';
