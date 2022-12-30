@@ -107,6 +107,7 @@ const ProjectPillCard = ({
             <Heading as={'h2'}>{title}</Heading>
             <Description
               description={description}
+              display={{ base: 'none', md: 'block' }}
               colors={
                 isAvailable
                   ? {

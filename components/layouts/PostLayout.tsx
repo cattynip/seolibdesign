@@ -29,7 +29,10 @@ const PostLayout = ({ datas }: IPostLayout) => {
                   <Heading as={'h2'} size={'xl'}>
                     {value.title}
                   </Heading>
-                  <Description description={value.shortDescription} />
+                  <Description
+                    description={value.shortDescription}
+                    textAlign={'right'}
+                  />
                 </Box>
               </Section>
               <Box

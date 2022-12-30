@@ -21,7 +21,7 @@ const SectionTop = ({ title, description }: ISectionTop) => {
         >
           <Heading
             as="h1"
-            size={{ md: '4xl', sm: '3xl' }}
+            size={{ base: '3xl', md: '4xl' }}
             textColor={titleColor}
             textAlign="center"
             mx="auto"

@@ -1,15 +1,12 @@
-import { Box, Container, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import Header from '@components/header/Header';
-import { motion } from 'framer-motion';
 
 interface ILayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: ILayoutProps) => {
-  const iconSrc = useColorModeValue('/logo-light.svg', '/logo-dark.svg');
-
   return (
     <Box as="main">
       <Head>
@@ -21,21 +18,13 @@ const Layout = ({ children }: ILayoutProps) => {
         <meta name="og:title" content="Seol SO" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.craftz.dog/card.png" />
-        <link rel="icon" href={iconSrc} />
+        <link rel="icon" href={'/logo.svg'} />
         <title>Seol IB Design</title>
       </Head>
 
       <Header />
 
-      <Container maxW="container.md">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {children}
-        </motion.div>
-      </Container>
+      <Container maxW="container.md">{children}</Container>
     </Box>
   );
 };
