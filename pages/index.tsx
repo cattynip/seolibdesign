@@ -10,6 +10,7 @@ import ProjectsData from '@data/data';
 const Home: NextPage = () => {
   const projects: Project[] = [];
 
+  /* eslint-disable @typescript-eslint/no-unused-vars */
   for (const [_key, value] of Object.entries(ProjectsData)) {
     projects.push({
       linkTo: value.link,
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
         <Box
           width={'100%'}
           display={'flex'}
-          flexDir={{ md: 'row', sm: 'column-reverse' }}
+          flexDir={{ base: 'column-reverse', md: 'row' }}
           justifyContent={'space-between'}
           alignItems={{ md: 'center', sm: 'flex-start' }}
         >
@@ -77,7 +78,7 @@ const Home: NextPage = () => {
               shadow="2xl"
               src="/me.jpeg"
               borderRadius={'full'}
-              mb={{ md: 0, sm: 7 }}
+              mb={{ base: 7, md: 0 }}
               mx={'auto'}
               width={{ md: 'auto', sm: '40%' }}
             />
@@ -88,7 +89,7 @@ const Home: NextPage = () => {
       <Separator />
 
       <Section delay={0.6} title="Projects">
-        <Projects projects={projects} />
+        <Projects />
       </Section>
     </Box>
   );

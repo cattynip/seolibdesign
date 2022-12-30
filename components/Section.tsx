@@ -30,6 +30,7 @@ const Section = ({ children, title, delay, ...props }: ISection) => {
           delay
         }
       }}
+      width={'100%'}
       {...props}
     >
       {title ? (

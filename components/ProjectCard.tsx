@@ -1,12 +1,10 @@
 import {
   Heading,
-  Img,
   Container,
   Box,
   Text,
   Link,
   useColorModeValue,
-  Flex,
   BoxProps
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -33,18 +31,18 @@ const ProjectCard = ({
     <Box {...props} pt={3}>
       <NextLink href={linkTo} passHref legacyBehavior>
         <Link
-          width={{ md: 'container.md', sm: '100%' }}
+          width={{ base: '100%', md: 'container.md' }}
           bg={boxBgColor}
           textColor={textColor}
           borderRadius="lg"
           style={{ textDecoration: 'none' }}
         >
-          <Box as={Flex}>
+          <Box display="flex">
             <ExpandableImage
               url={imageUrl}
               height={250}
               alt="Project Image"
-              display={{ md: 'block', sm: 'none' }}
+              display={{ base: 'none', md: 'block' }}
               borderLeftRadius="lg"
             />
             <Container p={4} experimental_spaceY={2}>

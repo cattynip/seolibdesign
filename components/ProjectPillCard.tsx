@@ -4,7 +4,7 @@ import {
   useColorMode,
   useColorModeValue
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import Description from './Description';
 import ProjectIcon, { TIconType } from './ProjectIcon';
@@ -30,7 +30,7 @@ const ProjectPillCard = ({
   const isDark = useColorMode();
 
   return (
-    <>
+    <AnimatePresence>
       <Box
         as={motion.div}
         initial={{ opacity: 0, x: isEven ? -30 : 30, filter: 'blur(15rem)' }}
@@ -107,6 +107,7 @@ const ProjectPillCard = ({
             <Heading as={'h2'}>{title}</Heading>
             <Description
               description={description}
+              display={{ base: 'none', md: 'block' }}
               colors={
                 isAvailable
                   ? {
@@ -143,7 +144,7 @@ const ProjectPillCard = ({
           </Box>
         )}
       </Box>
-    </>
+    </AnimatePresence>
   );
 };
 

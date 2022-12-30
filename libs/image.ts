@@ -12,6 +12,12 @@ export const GalleryEffectHeight = 240;
 export const MaximumElementWidth = 100;
 export const MinimumElementWidth = 50;
 
+export const MatrixArray = [
+  '0.74217 0.670211 -0.670211 0.74217 799.349 -474.65',
+  '0.74217 0.670211 -0.670211 0.74217 519.962 -243.396',
+  '0.760726 0.649074 -0.649074 0.760726 219.738 -18.5546'
+];
+
 export function getImageMore(howMany?: number): string[] {
   if (!howMany) howMany = 10;
   shuffleArray(FlexibleImageUrls);
@@ -19,6 +25,11 @@ export function getImageMore(howMany?: number): string[] {
   return returnArray;
 }
 
+export function getMatrixResult(index: number) {
+  return MatrixArray[index];
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 function fillImageUrls(array: any[]): string[] {
   for (let i = 0; i < AllImageType.length; i++) {
     const currentImageType = AllImageType[i];

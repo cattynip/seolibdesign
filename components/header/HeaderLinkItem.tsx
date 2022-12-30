@@ -2,7 +2,7 @@ import { Box, Text, useColorModeValue } from '@chakra-ui/react';
 import Anchor from '@components/Anchor';
 import ProjectIcon, { TIconType } from '@components/ProjectIcon';
 import { compareRouter } from '@libs/math';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { HTMLAttributeAnchorTarget } from 'react';
 
 interface INavigationElement {
@@ -32,19 +32,35 @@ const HeaderLinkItem = ({
 
   return (
     <Box display="flex" alignItems="center" position="relative">
-      {isMatched ? (
-        <Box
-          as={motion.div}
-          layoutId={'headerLink'}
-          bg={boxBgColor}
-          position="absolute"
-          width="100%"
-          height={8}
-          zIndex={-10}
-          borderRadius={10}
-          css={{ filter: 'invert(100%)' }}
-        />
-      ) : null}
+      <AnimatePresence>
+        {isMatched ? (
+          <Box
+            as={motion.div}
+            initial={{
+              y: -20,
+              opacity: 0
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+              transition: {
+                delay: 0.2
+              }
+            }}
+            exit={{
+              y: 20,
+              opacity: 0
+            }}
+            bg={boxBgColor}
+            position="absolute"
+            width="100%"
+            height={8}
+            zIndex={-10}
+            borderRadius={10}
+            css={{ filter: 'invert(100%)' }}
+          />
+        ) : null}
+      </AnimatePresence>
       <Anchor href={href} target={target}>
         <Box
           display="flex"
