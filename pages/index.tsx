@@ -89,7 +89,7 @@ const Home: NextPage = () => {
       <Separator />
 
       <Section delay={0.6} title="Projects">
-        <Projects projects={projects} />
+        <Projects />
       </Section>
     </Box>
   );
