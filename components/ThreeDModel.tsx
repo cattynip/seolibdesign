@@ -6,6 +6,7 @@ import { OrbitControls } from '@react-three/drei';
 import { IThreeD } from '@data/websiteData';
 import { Box } from '@chakra-ui/react';
 import { changeToAngle } from '@libs/math';
+import { DirectionalLightHelper } from 'three';
 
 interface IThreeDModel {
   src: IThreeD;
@@ -49,7 +50,10 @@ const ThreeDModel = ({ src }: IThreeDModel) => {
           <Scene src={src} />
           <gridHelper scale={25} />
           <axesHelper scale={100} />
-          <ambientLight />
+          <spotLight position={[100, 100, 0]} />
+          <spotLight position={[-900, -400, 0]} />
+          <spotLight position={[0, 0, -200]} />
+          <spotLight position={[0, 0, 200]} />
           <OrbitControls scale={1.2} />
         </Suspense>
       </Canvas>

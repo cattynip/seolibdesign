@@ -9,6 +9,25 @@ const HouseData: IProjectData<IPostData> = {
   iconType: 'house',
   finished: true,
   data: {
+    threeD: {
+      title: '3D Model',
+      shortDescription: 'How does 3D model look like?',
+      datas: [
+        {
+          content: 'Helo'
+        },
+        {
+          threeD: {
+            src: {
+              mtlSrc: '/house/obj.mtl',
+              objSrc: '/house/tinker.obj'
+            },
+            explaination: 'This is the 3D model of the hosue.'
+          }
+        }
+      ]
+    }
+  }
 };
 
 export default HouseData;
