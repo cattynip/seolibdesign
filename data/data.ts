@@ -1,10 +1,9 @@
 import { TIconType } from '@components/ProjectIcon';
 import HolidayData from './holidayHouseData';
-import HouseData from './houseData';
 import MagazineProjectData from './magazineData';
 import WebsiteProjectData from './websiteData';
 
-type TProjects = 'magazine' | 'website' | 'holiday' | 'house';
+type TProjects = 'magazine' | 'website' | 'holiday';
 
 type IProject = {
   [key in TProjects]: IProjectData;
@@ -28,8 +27,7 @@ export interface IProjectData<T = any> {
 const ProjectsData: IProject = {
   magazine: MagazineProjectData,
   website: WebsiteProjectData,
-  holiday: HolidayData,
-  house: HouseData
+  holiday: HolidayData
 };
 
 export default ProjectsData;

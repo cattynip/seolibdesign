@@ -2,11 +2,11 @@ import { IProjectData } from './data';
 import { IPostData } from './websiteData';
 
 const HolidayData: IProjectData<IPostData> = {
-  title: 'Holiday House',
+  title: 'House',
   description:
     '`Holiday House Project` is to render a 3D model and make the model with real snacks. Unfortunately, I did not do well since I thought and planned with ignoring the concept of this project.',
   shortDescription:
-    'The project to render a 3D model and make it with real snacks.',
+    'The project to render a 3D model and make it with real materials.',
   link: '/house',
   iconType: 'house',
   finished: true,
