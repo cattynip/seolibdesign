@@ -49,8 +49,11 @@ const ThreeDModel = ({ src }: IThreeDModel) => {
           <Scene src={src} />
           <gridHelper scale={25} />
           <axesHelper scale={100} />
-          <ambientLight />
           <OrbitControls scale={1.2} />
+          <spotLight position={[100, 100, 0]} />
+          <spotLight position={[-900, -400, 0]} />
+          <spotLight position={[0, 0, -200]} />
+          <spotLight position={[0, 0, 200]} />
         </Suspense>
       </Canvas>
     </Box>
