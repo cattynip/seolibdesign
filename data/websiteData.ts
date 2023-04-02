@@ -27,7 +27,7 @@ const WebsiteProjectData: IProjectData<IPostData> = {
   description:
     '`Website Project` is to build and deploy a beautiful website to show what I have done in Design 8B class. Unlike others, I did not build this website based on the platform called "Weebly" which Mr. Gunn recommended. Let\'s go to know why I did.',
   shortDescription: 'The project to build and deploy the website for showing.',
-  link: '/website',
+  link: '/8/website',
   iconType: 'website',
   finished: true,
   data: {

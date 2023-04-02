@@ -5,9 +5,9 @@ const PerspectivesData: IProjectData<IPostData> = {
   title: 'Perspectives',
   description: 'The Project to build and make it with real material.',
   shortDescription: 'The Project to build 3D and make it with real material.',
-  link: '/perspectives',
+  link: '/9/perspectives',
   iconType: 'perspectives',
-  finished: false,
+  finished: true,
   data: {
     images: {
       title: 'Images',
