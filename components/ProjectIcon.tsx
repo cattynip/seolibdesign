@@ -2,6 +2,7 @@ import { IoHome, IoLogoGithub, IoNewspaper } from 'react-icons/io5';
 import { CgWebsite } from 'react-icons/cg';
 import { HiHomeModern } from 'react-icons/hi2';
 import {
+  BsEyeSlashFill,
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill
 } from 'react-icons/bs';
@@ -13,7 +14,8 @@ export type TIconType =
   | 'house'
   | 'github'
   | 'leftArrow'
-  | 'rightArrow';
+  | 'rightArrow'
+  | 'perspectives';
 
 interface IProjectIcon {
   iconType: TIconType;
@@ -34,6 +36,7 @@ const ProjectIcon = ({ iconType, size = 60 }: IProjectIcon) => {
       {iconType === 'rightArrow' ? (
         <BsFillArrowRightCircleFill size={size} />
       ) : null}
+      {iconType === 'perspectives' ? <BsEyeSlashFill size={size} /> : null}
     </>
   );
 };

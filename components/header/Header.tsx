@@ -143,6 +143,12 @@ const Header = () => {
                     index={4}
                   />
                   <HeaderMenuItem
+                    href="/perspectives"
+                    iconType="eyes"
+                    text="Perspectives"
+                    index={5}
+                  />
+                  <HeaderMenuItem
                     href="https://github.com/cattynip/seolibdesign"
                     iconType="github"
                     text="GitHub"
