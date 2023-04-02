@@ -23,20 +23,19 @@ const ProjectCard = ({
     <div className="pt-3">
       <Anchor href={linkTo}>
         <div
-          className="w-full md:w-4/6 decoration-transparent rounded-lg"
+          className="w-full decoration-transparent rounded-lg flex"
           style={{
             backgroundColor: boxBgColor,
             color: textColor
           }}
         >
           <ExpandableImage
-            url={imageUrl}
-            height={250}
+            url={`${imageUrl}`}
             alt="Project Image"
             display={{ base: 'none', md: 'block' }}
             borderLeftRadius="lg"
           />
-          <div className="p-4">
+          <div className="p-4 w-auto">
             <h2 className="text-2xl font-bold">{title}</h2>
             <Description description={description} />
           </div>

@@ -2,19 +2,8 @@ import { NextPage } from 'next';
 import MagazineProjectData from '@data/magazineData';
 import Separator from '@components/Separator';
 import SectionTop from '@components/section/SectionTop';
-import PerspectivesData from '@data/perspectivesData';
-import PostLayout from '@components/layouts/PostLayout';
-import { IPostData } from '@data/websiteData';
 
 const Home: NextPage = () => {
-  const projectDatas: IPostData[] = [];
-
-  for (const key in PerspectivesData.data) {
-    const currentData = PerspectivesData.data[key];
-
-    projectDatas.push(currentData);
-  }
-
   return (
     <>
       <SectionTop
@@ -24,7 +13,7 @@ const Home: NextPage = () => {
 
       <Separator />
 
-      <PostLayout projects={projectDatas} />
+      <p>This part is being developed.</p>
     </>
   );
 };

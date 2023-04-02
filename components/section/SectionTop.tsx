@@ -1,4 +1,4 @@
-import { Flex, Heading, useColorModeValue } from '@chakra-ui/react';
+import { useColorModeValue } from '@chakra-ui/react';
 import Description from '@components/Description';
 import Section from '@components/Section';
 
@@ -13,31 +13,20 @@ const SectionTop = ({ title, description }: ISectionTop) => {
   return (
     <>
       <Section delay={0.2}>
-        <Flex
-          pt={10}
-          flexDir={'column'}
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Heading
-            as="h1"
-            size={{ base: '3xl', md: '4xl' }}
-            textColor={titleColor}
-            textAlign="center"
-            mx="auto"
-            cursor="default"
-            pb={4}
+        <div className="flex pt-10 flex-col items-center justify-center">
+          <h1
+            className="mx-auto cursor-default pb-4 text-4xl md:text-6xl font-bold"
+            style={{
+              color: titleColor
+            }}
           >
             {title}
-          </Heading>
+          </h1>
           <Description
-            width="100%"
-            maxW="container.sm"
-            textAlign="center"
-            transitionDuration="500ms"
+            extraClassName="w-full max-w-full text-center"
             description={description}
           />
-        </Flex>
+        </div>
       </Section>
     </>
   );

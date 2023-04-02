@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react';
 import DetailedTree from '@components/detailed/DetailedTree';
 import DetailedTop from '@components/detailed/DetailedTop';
 import Section from '@components/Section';
@@ -36,7 +35,7 @@ const DetailedLayout = ({
 
   return (
     <>
-      <Box>
+      <div>
         <Section delay={0.4}>
           <DetailedTop area={title} description={description} />
         </Section>
@@ -44,7 +43,7 @@ const DetailedLayout = ({
         <Separator />
 
         <Section delay={0.8} title="Drafts Tree">
-          <Box>
+          <div>
             {(currentExplaination === 'description' ||
               currentExplaination === 'initial') && (
               <DetailedTree
@@ -89,7 +88,7 @@ const DetailedLayout = ({
                 }
               />
             )}
-          </Box>
+          </div>
 
           {currentExplaination !== 'description' ? (
             <DetailedInformation
@@ -99,7 +98,7 @@ const DetailedLayout = ({
         </Section>
 
         <Separator />
-      </Box>
+      </div>
     </>
   );
 };
