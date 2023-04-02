@@ -4,6 +4,7 @@ import MagazineProjectData from './magazineData';
 import PerspectivesData from './perspectivesData';
 import WebsiteProjectData from './websiteData';
 
+type TGrades = 8 | 9;
 type TProjects = 'magazine' | 'website' | 'holiday' | 'perspectives';
 
 type IProject = {

@@ -14,8 +14,6 @@ import Logo from '@components/logo/Logo';
 import { useRouter } from 'next/router';
 import HeaderLinkItem from './HeaderLinkItem';
 import HeaderMenuItem from './HeaderMenuItem';
-import ProjectsData from '@data/data';
-import { firstCapitalize } from '@libs/math';
 
 const Header = () => {
   const router = useRouter();
@@ -65,15 +63,18 @@ const Header = () => {
                 icon="home"
                 text="Home"
               />
-              {Object.values(ProjectsData).map((value, idx) => (
-                <HeaderLinkItem
-                  key={idx}
-                  href={value.link}
-                  pathName={router.pathname}
-                  icon={value.iconType}
-                  text={firstCapitalize(value.iconType)}
-                />
-              ))}
+              <HeaderLinkItem
+                href={'/8'}
+                pathName={router.pathname}
+                icon="number8"
+                text={'Grade 8'}
+              />
+              <HeaderLinkItem
+                href={'/9'}
+                pathName={router.pathname}
+                icon="number9"
+                text={'Grade 9'}
+              />
               <HeaderLinkItem
                 href="https://github.com/cattynip/seolibdesign"
                 pathName={router.pathname}
@@ -125,28 +126,16 @@ const Header = () => {
                     index={1}
                   />
                   <HeaderMenuItem
-                    href="/magazine"
+                    href="/8"
                     iconType="magazine"
-                    text="Magazine"
+                    text="Grade 8"
                     index={2}
                   />
                   <HeaderMenuItem
-                    href="/website"
+                    href="/9"
                     iconType="website"
-                    text="Website"
+                    text="Grade 9"
                     index={3}
-                  />
-                  <HeaderMenuItem
-                    href="/house"
-                    iconType="house"
-                    text="House"
-                    index={4}
-                  />
-                  <HeaderMenuItem
-                    href="/perspectives"
-                    iconType="eyes"
-                    text="Perspectives"
-                    index={5}
                   />
                   <HeaderMenuItem
                     href="https://github.com/cattynip/seolibdesign"
