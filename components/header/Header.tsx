@@ -127,13 +127,13 @@ const Header = () => {
                   />
                   <HeaderMenuItem
                     href="/8"
-                    iconType="magazine"
+                    iconType="number8"
                     text="Grade 8"
                     index={2}
                   />
                   <HeaderMenuItem
                     href="/9"
-                    iconType="website"
+                    iconType="number9"
                     text="Grade 9"
                     index={3}
                   />
