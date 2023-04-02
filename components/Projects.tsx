@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import ProjectsData from '@data/data';
+import ProjectData8 from '@data/data';
 import Anchor from './Anchor';
 import { TIconType } from './ProjectIcon';
 import ProjectPillCard from './ProjectPillCard';
@@ -15,7 +15,7 @@ export interface Project {
 const Projects = () => {
   return (
     <>
-      {Object.values(ProjectsData).map((value, idx) => (
+      {Object.values(ProjectData8).map((value, idx) => (
         <Box key={idx}>
           <Anchor href={value.link}>
             <ProjectPillCard

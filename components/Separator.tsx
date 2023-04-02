@@ -1,12 +1,11 @@
-import { Divider, useColorModeValue } from '@chakra-ui/react';
+import { useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 const Separator = () => {
   const dividerBorderColor = useColorModeValue('black', 'white');
 
   return (
-    <Divider
-      as={motion.hr}
+    <motion.hr
       initial={{
         x: 0,
         scaleX: 0
@@ -19,8 +18,7 @@ const Separator = () => {
           duration: 0.7
         }
       }}
-      py={3}
-      borderColor={dividerBorderColor}
+      className={`py-3 border-t-2 mt-6 border-gray-400 border-${dividerBorderColor}`}
     />
   );
 };
