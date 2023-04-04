@@ -66,8 +66,6 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 
-  console.log(filteredProjects);
-
   return {
     props: {
       posts: JSON.parse(JSON.stringify(filteredProjects))

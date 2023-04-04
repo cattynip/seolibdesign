@@ -23,7 +23,7 @@ const Home: NextPage<IGetStaticPropsReturn> = ({ contents }) => {
             title={markdown.title}
             description={markdown.description}
             idx={idx}
-            link={`/9/perspective/${markdown.route}`}
+            link={`/9/perspectives/${markdown.route}`}
           />
         ))}
       </Section>

@@ -3,10 +3,14 @@ import matter from 'gray-matter';
 
 const getPaths = (isFormatted?: boolean): string[] => {
   const files = readdirSync('./posts', 'utf-8').map(file => {
-    return isFormatted ? file.split('.')[2] : file;
+    return isFormatted ? cleanPath(file) : file;
   });
 
   return files;
+};
+
+export const cleanPath = (path: string): string => {
+  return path.split('.')[1];
 };
 
 export interface IMarkdownShape {

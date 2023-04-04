@@ -27,8 +27,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
+    "remark-html": "^15.0.2",
+    "remark-parse": "^10.0.1",
     "three": "^0.148.0",
-    "three-stdlib": "^2.21.1"
+    "three-stdlib": "^2.21.1",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
     "@types/node": "18.11.9",

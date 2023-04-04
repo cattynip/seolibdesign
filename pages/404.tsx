@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      router.push('/');
+      router.back();
     }, 5000);
   });
 
