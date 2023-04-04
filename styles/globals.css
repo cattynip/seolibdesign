@@ -6,3 +6,44 @@
   background-color: #7f5ad5;
   color: white;
 }
+
+.post h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.post h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.post p {
+  font-color: red;
+}
+
+.post ul {
+  list-style-type: circle;
+  padding-left: 30px;
+}
+
+.post ol {
+  list-style-type: number;
+  font-weight: 700;
+  padding-left: 15px;
+  margin: 10px 0px;
+}
+
+.post li {
+  margin: 7px 0px;
+}
+
+.post hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.post img {
+  margin: 20px auto;
+}

@@ -4,17 +4,23 @@ import matter from 'gray-matter';
 import { unified } from 'unified';
 import remarkHtml from 'remark-html';
 import remarkParse from 'remark-parse/lib';
+import SectionTop from '@components/section/SectionTop';
+import Section from '@components/Section';
+import Separator from '@components/Separator';
 
 const PerspectiveDocumentPage: NextPage<IGetStaticPropsReturn> = ({
   title,
   description,
   content
 }) => {
-  console.log(title, description, content);
-
   return (
     <div>
-      <span>Hello World</span>
+      <SectionTop title={title} description={description} />
+      <Separator />
+
+      <Section delay={0.4}>
+        <div className="post" dangerouslySetInnerHTML={{ __html: content }} />
+      </Section>
     </div>
   );
 };
@@ -25,8 +31,6 @@ export const getStaticPaths: GetStaticPaths = () => {
       params: { title: route }
     };
   });
-
-  console.log(paths);
 
   return {
     paths,
@@ -50,7 +54,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 
   return {
     props: {
-      post: value,
+      content: value,
       title: data?.title,
       description: data?.description
     }
