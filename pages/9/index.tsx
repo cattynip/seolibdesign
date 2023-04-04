@@ -18,20 +18,17 @@ const GradeNineHome: NextPage = () => {
       <Separator />
 
       <Section title={'Grade 9 Project'} delay={0.4}>
-        {Object.values(ProjectData.ProjectData9).map((currentProject, idx) => {
-          console.log(currentProject);
-          return (
-            <ProjectPillCard
-              key={currentProject.title}
-              title={currentProject.title}
-              isAvailable={currentProject.finished}
-              iconType={currentProject.iconType}
-              description={''}
-              linkTo={currentProject.link}
-              isEven={idx % 2 === 1}
-            />
-          );
-        })}
+        {Object.values(ProjectData.ProjectData9).map((currentProject, idx) => (
+          <ProjectPillCard
+            key={currentProject.title}
+            title={currentProject.title}
+            isAvailable={currentProject.finished}
+            iconType={currentProject.iconType}
+            description={''}
+            linkTo={currentProject.link}
+            isEven={idx % 2 === 1}
+          />
+        ))}
       </Section>
     </div>
   );

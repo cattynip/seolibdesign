@@ -17,6 +17,7 @@ export interface IMarkdownShape {
   title: string;
   route: string;
   description: string;
+  period: string;
   file: string;
 }
 
@@ -30,9 +31,20 @@ export const getContents = (): TGetContentsReturn => {
       title: content.data?.title,
       route: content.data?.route,
       description: content.data?.description,
+      period: content.data?.period,
       file,
       extraData: { ...content.data }
     };
+  });
+
+  documents.sort((firstObj, secondObj) => {
+    if (firstObj.period > secondObj.period) {
+      return 1;
+    } else if (firstObj.period < secondObj.period) {
+      return -1;
+    } else {
+      return 0;
+    }
   });
 
   return documents;
