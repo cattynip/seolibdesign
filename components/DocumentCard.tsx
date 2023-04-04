@@ -55,7 +55,7 @@ const DocumentCard = ({ title, description, link, idx }: IDocumentCard) => {
           style={{ backgroundColor: boxBgColor, color: textColor }}
         >
           <h2 className="text-xl font-bold">
-            {idx + 1}. {title}
+            Term {idx + 1}. {title}
           </h2>
           <Description description={description} />
         </motion.div>
