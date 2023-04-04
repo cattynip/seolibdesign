@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     projectDatas.push({
       title: currentData.name,
       description: currentData.description,
-      linkTo: `/magazine/${currentData.kind}`,
+      linkTo: `/8/magazine/${currentData.kind}`,
       imageUrl:
         typeof currentData.final.imageUrls[0] === 'string'
           ? currentData.final.imageUrls[0]

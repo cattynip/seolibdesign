@@ -1,4 +1,4 @@
-import { chakra, Heading, shouldForwardProp } from '@chakra-ui/react';
+import { chakra, shouldForwardProp } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 interface ISection {
@@ -34,9 +34,9 @@ const Section = ({ children, title, delay, ...props }: ISection) => {
       {...props}
     >
       {title ? (
-        <Heading textAlign="center" py={5} pb={7}>
+        <h1 className="text-center text-3xl font-semibold py-5 pb-7">
           {title}
-        </Heading>
+        </h1>
       ) : null}
       {children}
     </SectionDiv>

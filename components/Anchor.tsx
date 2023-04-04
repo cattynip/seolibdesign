@@ -9,7 +9,7 @@ interface IAnchor {
 }
 
 const Anchor = ({
-  href,
+  href: linkTo,
   colored,
   children,
   ...props
@@ -17,7 +17,7 @@ const Anchor = ({
   const anchorTextColor = useColorModeValue('#4340ff', 'orange');
 
   return (
-    <Link href={href} passHref legacyBehavior>
+    <Link href={linkTo} passHref legacyBehavior>
       <a
         style={{
           cursor: 'pointer',

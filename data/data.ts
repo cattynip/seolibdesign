@@ -1,13 +1,19 @@
 import { TIconType } from '@components/ProjectIcon';
 import HolidayData from './holidayHouseData';
 import MagazineProjectData from './magazineData';
-import PerspectivesData from './perspectivesData';
 import WebsiteProjectData from './websiteData';
+import PerspectivesData from './perspectivesData';
 
-type TProjects = 'magazine' | 'website' | 'holiday' | 'perspectives';
+export type TGrades = 8 | 9;
+export type TProjects8 = 'magazine' | 'website' | 'holiday';
+export type TProjects9 = 'perspectives';
 
-type IProject = {
-  [key in TProjects]: IProjectData;
+type IProject8 = {
+  [key in TProjects8]: IProjectData;
+};
+
+type IProject9 = {
+  [key in TProjects9]: IProjectData;
 };
 
 export interface IProjectDataEnum<T> {
@@ -25,11 +31,19 @@ export interface IProjectData<T = any> {
   data: IProjectDataEnum<T>;
 }
 
-const ProjectsData: IProject = {
+const ProjectData8: IProject8 = {
   magazine: MagazineProjectData,
   website: WebsiteProjectData,
-  holiday: HolidayData,
+  holiday: HolidayData
+};
+
+const ProjectData9: IProject9 = {
   perspectives: PerspectivesData
 };
 
-export default ProjectsData;
+const ProjectData = {
+  ProjectData8,
+  ProjectData9
+};
+
+export default ProjectData;

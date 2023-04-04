@@ -1,51 +1,29 @@
 import { NextPage } from 'next';
-import { Box, Heading, Img, Text } from '@chakra-ui/react';
+import Separator from '@components/Separator';
 import Section from '@components/Section';
 import Anchor from '@components/Anchor';
 import { motion } from 'framer-motion';
-import Projects, { Project } from '@components/Projects';
-import Separator from '@components/Separator';
-import ProjectsData from '@data/data';
 
 const Home: NextPage = () => {
-  const projects: Project[] = [];
-
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  for (const [_key, value] of Object.entries(ProjectsData)) {
-    projects.push({
-      linkTo: value.link,
-      iconType: value.iconType,
-      title: value.title,
-      description: value.shortDescription,
-      available: value.finished
-    });
-  }
-
   return (
-    <Box>
+    <div>
       <Section delay={0.2}>
-        <Heading as={'h1'} size={'3xl'} fontWeight={'extrabold'} pb={3}>
+        <h1 className={'text-3xl font-extrabold pb-3'}>
           Seol IB Design Website
-        </Heading>
-        <Text>
+        </h1>
+        <p>
           This is a website that is introducing about my Design Works on&nbsp;
           <Anchor href="https://www.bodwell.edu/" target="_blank" colored>
             Bodwell
           </Anchor>
-        </Text>
+        </p>
       </Section>
 
       <Separator />
 
       <Section delay={0.4} title="About Me">
-        <Box
-          width={'100%'}
-          display={'flex'}
-          flexDir={{ base: 'column-reverse', md: 'row' }}
-          justifyContent={'space-between'}
-          alignItems={{ md: 'center', sm: 'flex-start' }}
-        >
-          <Text textAlign={{ md: 'left', sm: 'center' }} width="100%">
+        <div className="w-full flex flex-col-reverse justify-between items-center sm:items-start md:items-center md:flex-row">
+          <p className="text-left md:text-left sm:text-center w-full">
             Hello, I am Seol SO from South Korea. I have been attending&nbsp;
             <Anchor href="https://www.bodwell.edu/" target="_blank" colored>
               Bodwell
@@ -56,10 +34,9 @@ const Home: NextPage = () => {
             such as the Magazine Project, and the GB House Project. And I am and
             will be working hard on the Design assignments and projects to be
             improved much better as a level of design.
-          </Text>
-          <Box>
-            <Img
-              as={motion.img}
+          </p>
+          <div>
+            <motion.img
               initial={{
                 scale: 1,
                 zIndex: 0,
@@ -75,23 +52,13 @@ const Home: NextPage = () => {
                   duration: 0.4
                 }
               }}
-              shadow="2xl"
               src="/me.jpeg"
-              borderRadius={'full'}
-              mb={{ base: 7, md: 0 }}
-              mx={'auto'}
-              width={{ md: 'auto', sm: '40%' }}
+              className="shadow-2xl rounded-full mb-7 md:mb-0 mx-auto w-auto md:w-auto sm:w-2/5"
             />
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Section>
-
-      <Separator />
-
-      <Section delay={0.6} title="Projects">
-        <Projects />
-      </Section>
-    </Box>
+    </div>
   );
 };
 
