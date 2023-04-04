@@ -5,7 +5,7 @@ const HouseData: IProjectData<IPostData> = {
   title: 'House',
   description: 'The Project to build and make it with real material.',
   shortDescription: 'The Project to build 3D and make it with real material.',
-  link: '/house/v2',
+  link: '/8/house/second',
   iconType: 'house',
   finished: true,
   data: {

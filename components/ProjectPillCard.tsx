@@ -1,19 +1,17 @@
-import {
-  Box,
-  Heading,
-  useColorMode,
-  useColorModeValue
-} from '@chakra-ui/react';
+import { useColorModeValue } from '@chakra-ui/react';
+import classJoin from '@libs/classJoin';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import Anchor from './Anchor';
 import Description from './Description';
 import ProjectIcon, { TIconType } from './ProjectIcon';
 
 interface IProjectPillCard {
   title: string;
-  description: string;
+  description?: string;
   iconType: TIconType;
   isAvailable: boolean;
+  linkTo?: string;
   isEven: boolean;
 }
 
@@ -22,128 +20,94 @@ const ProjectPillCard = ({
   isEven,
   iconType,
   title,
-  description
+  linkTo,
+  description = ''
 }: IProjectPillCard) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const boxBgColor = useColorModeValue('#202023', '#f0e7db');
   const textColor = useColorModeValue('white', 'black');
-  const isDark = useColorMode();
 
   return (
     <AnimatePresence>
-      <Box
-        as={motion.div}
-        initial={{ opacity: 0, x: isEven ? -30 : 30, filter: 'blur(15rem)' }}
-        animate={{
-          opacity: 1,
-          x: 0,
-          filter: 'blur(0px)',
-          transition: { delay: 3, type: 'spring', bounce: 0.2 }
-        }}
-        whileHover={
-          isAvailable
-            ? {
-                scale: 1.2,
-                transition: { delay: 0.2, type: 'spring', bounce: 0.7 }
-              }
-            : {
-                scale: 0.9,
-                transition: { delay: 0.2, type: 'spring', bounce: 0.7 }
-              }
-        }
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        position="relative"
-        shadow="dark-lg"
-        bg={boxBgColor}
-        textColor={textColor}
-        borderRadius="full"
-        cursor={isAvailable ? 'pointer' : 'not-allowed'}
-        zIndex={10}
-      >
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent={isEven ? 'start' : 'end'}
-          flexDir={isEven ? 'row' : 'row-reverse'}
-          experimental_spaceX={7}
-          p={2}
-          pl={isEven ? 2 : 14}
-          pr={isEven ? 14 : 2}
-          mb={4}
-          zIndex={-1}
-          filter={isAvailable ? 'blur(0px)' : 'blur(10px)'}
+      <Anchor href={linkTo ? linkTo : `/${title.toLowerCase()}`}>
+        <motion.div
+          initial={{ opacity: 0, x: isEven ? -30 : 30, filter: 'blur(15rem)' }}
+          animate={{
+            opacity: 1,
+            x: 0,
+            filter: 'blur(0px)',
+            transition: { delay: 3, type: 'spring', bounce: 0.2 }
+          }}
+          whileHover={
+            isAvailable
+              ? {
+                  scale: 1.2,
+                  transition: { delay: 0.2, type: 'spring', bounce: 0.7 }
+                }
+              : {
+                  scale: 0.9,
+                  transition: { delay: 0.2, type: 'spring', bounce: 0.7 }
+                }
+          }
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className={'relative shadow-2xl rounded-full cursor-pointer z-10'}
+          style={{
+            backgroundColor: boxBgColor,
+            color: textColor
+          }}
         >
-          <Box
-            as={motion.div}
-            initial={{}}
-            animate={
-              isHovered
-                ? {
-                    rotateX: 720,
-                    rotateY: 720,
-                    rotateZ: 720,
-                    transition: {
-                      delay: 0.1,
-                      duration: 0.4
-                    }
-                  }
-                : {}
-            }
-            bg={isAvailable ? 'gray.400' : 'gray.600'}
-            textColor={'blackAlpha.700'}
-            p={7}
-            borderRadius="full"
+          <div
+            className={classJoin([
+              'flex items-center p-2 mb-4',
+              isEven
+                ? 'justify-start flex-row pl-2 pr-14'
+                : 'justify-start flex-row-reverse p-2 pl-14',
+              isAvailable ? '' : 'blur-md'
+            ])}
           >
-            <ProjectIcon iconType={iconType} />
-          </Box>
-          <Box
-            display="flex"
-            flexDir="column"
-            alignItems={isEven ? 'start' : 'end'}
-            justifyContent="center"
-            experimental_spaceY={0}
-          >
-            <Heading as={'h2'}>{title}</Heading>
-            <Description
-              description={description}
-              display={{ base: 'none', md: 'block' }}
-              colors={
-                isAvailable
+            <motion.div
+              initial={{}}
+              animate={
+                isHovered
                   ? {
-                      unHovered:
-                        isDark.colorMode === 'dark'
-                          ? 'gray.500'
-                          : 'whiteAlpha.600',
-                      hovered:
-                        isDark.colorMode === 'dark'
-                          ? 'gray.900'
-                          : 'whiteAlpha.900'
+                      rotateX: 720,
+                      rotateY: 720,
+                      rotateZ: 720,
+                      transition: {
+                        delay: 0.1,
+                        duration: 0.4
+                      }
                     }
-                  : undefined
+                  : {}
               }
-              cursor={isAvailable ? 'default' : 'not-allowed'}
-              textAlign={isEven ? 'left' : 'right'}
-            />
-          </Box>
-        </Box>
-        {isAvailable ? null : (
-          <Box
-            position={'absolute'}
-            left={0}
-            top={0}
-            width="100%"
-            height={'100%'}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            zIndex={10}
-          >
-            <Heading size={'2xl'}>It will be back!</Heading>
-          </Box>
-        )}
-      </Box>
+              className={classJoin([
+                'text-black p-7 rounded-full',
+                isAvailable ? 'bg-gray-400' : 'bg-gray-600'
+              ])}
+            >
+              <ProjectIcon iconType={iconType} />
+            </motion.div>
+            <div
+              className={classJoin([
+                'flex flex-col justify-center px-6',
+                isEven ? 'items-start' : 'items-end'
+              ])}
+            >
+              <h2 className="text-3xl font-semibold">{title}</h2>
+              <Description
+                description={description}
+                extraClassName={`text-${isEven ? 'left' : 'right'}`}
+              />
+            </div>
+          </div>
+          {isAvailable ? null : (
+            <div className="absolute left-0 top-0 w-full h-full flex items-center justify-center text-center z-10">
+              <p className="text-4xl font-bold">It will be back!</p>
+            </div>
+          )}
+        </motion.div>
+      </Anchor>
     </AnimatePresence>
   );
 };

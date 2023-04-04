@@ -18,6 +18,7 @@ export const MagazinePartsArray: TMagazinePart[] = [
   'intermediate',
   'final'
 ];
+
 export interface IMagazinePart {
   explaination: string;
   imageUrls: string[] | string[][];
@@ -111,7 +112,7 @@ const MagazineProjectData: IProjectData<IMagazineData> = {
     '`Magazine Project` is to design and develop a perfect magazine that my client wants to make. For this, I made 3 initial, 2 intermediate and last one final drafts for each section which are the Cover, Middle(Main) and Back pages.',
   shortDescription:
     'The project to design and develop the magazine for the client.',
-  link: '/magazine',
+  link: '/8/magazine',
   iconType: 'magazine',
   finished: true,
   data: {

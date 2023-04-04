@@ -1,4 +1,3 @@
-import { Stack } from '@chakra-ui/react';
 import React from 'react';
 import ProjectCard, { IProjectCard } from '@components/ProjectCard';
 import Section from '@components/Section';
@@ -12,20 +11,14 @@ const DashboardLayout = ({ projects }: IDashboardLayout) => {
   return (
     <>
       <Section delay={0.4}>
-        <Stack display="flex" alignItems="center" justifyContent="start">
+        <div className="flex flex-col items-center justify-start">
           {projects.map((project, idx) => (
             <Section key={project.title} delay={idx / 3}>
-              <ProjectCard
-                display="flex"
-                flexDir="column"
-                alignItems="center"
-                justifyContent="start"
-                {...project}
-              />
+              <ProjectCard {...project} />
               <Separator />
             </Section>
           ))}
-        </Stack>
+        </div>
       </Section>
     </>
   );

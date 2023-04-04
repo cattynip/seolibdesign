@@ -1,4 +1,3 @@
-import { AspectRatio, Box, Heading, Stack } from '@chakra-ui/react';
 import Description from '@components/Description';
 import PostElement from '@components/PostElement';
 import PostImage from '@components/PostImage';
@@ -16,38 +15,21 @@ const PostLayout = ({ datas }: IPostLayout) => {
   return (
     <>
       <Section delay={0.4}>
-        <Stack width="100%" experimental_spaceY={4} pt={3}>
+        <div className="w-full pt-3">
           {datas.map((value, index) => (
-            <Box width="100%" key={index}>
+            <div className="w-full" key={index}>
               <Section delay={0.6}>
-                <Box
-                  width="100%"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent={'space-between'}
-                >
-                  <Heading as={'h2'} size={'xl'}>
-                    {value.title}
-                  </Heading>
-                  <Description
-                    description={value.shortDescription}
-                    textAlign={'right'}
-                  />
-                </Box>
+                <div className="w-full flex items-center justify-between">
+                  <h2 className="text-xl">{value.title}</h2>
+                  <Description description={value.shortDescription} />
+                </div>
               </Section>
-              <Box
-                display="flex"
-                flexDir={'column'}
-                alignItems="flex-start"
-                justifyContent={'center'}
-              >
+              <div className="flex flex-col items-start justify-center">
                 {value.datas.map((content, idx) => (
                   <Section delay={0.8} key={idx}>
-                    <Box py={3}>
+                    <div className="py-3">
                       {content.sectionTitle ? (
-                        <Heading as={'h3'} size="lg" pb={3}>
-                          {content.sectionTitle}
-                        </Heading>
+                        <h3 className="text-lg pb-3">{content.sectionTitle}</h3>
                       ) : null}
                       {content.content ? (
                         <PostElement>{content.content}</PostElement>
@@ -60,23 +42,23 @@ const PostLayout = ({ datas }: IPostLayout) => {
                         />
                       ) : content.threeD ? (
                         <PostElement description={content.threeD.explaination}>
-                          <AspectRatio ratio={16 / 9}>
+                          <div className="aspect-video">
                             <ThreeDModel src={content.threeD.src} />
-                          </AspectRatio>
+                          </div>
                         </PostElement>
                       ) : content.gallery ? (
                         <PostElement description={content.gallery.explaination}>
                           <Gallery images={content.gallery.src} />
                         </PostElement>
                       ) : null}
-                    </Box>
+                    </div>
                   </Section>
                 ))}
-              </Box>
+              </div>
               <Separator />
-            </Box>
+            </div>
           ))}
-        </Stack>
+        </div>
       </Section>
     </>
   );

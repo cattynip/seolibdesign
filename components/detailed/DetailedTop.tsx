@@ -14,7 +14,7 @@ const DetailedTop = ({ area, description }: IDetailedTop) => {
         <Heading as="h1" size="3xl" pb={3}>
           {area}
         </Heading>
-        <Description description={description} fontSize={'sm'} />
+        <Description description={description} />
       </Box>
     </Box>
   );

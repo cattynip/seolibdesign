@@ -1,12 +1,14 @@
-import { Box, BoxProps, Container, useColorModeValue } from '@chakra-ui/react';
+import { useColorModeValue } from '@chakra-ui/react';
 import Description from '@components/Description';
 import ExpandableImage, {
   ImageHeight,
   ImageWidth
 } from '@components/ExpandableImage';
 import { TMagazineArea, TMagazinePart } from '@data/magazineData';
+import classJoin from '@libs/classJoin';
 import { firstCapitalize } from '@libs/math';
 import { AnimatePresence, motion } from 'framer-motion';
+import { HTMLAttributes } from 'react';
 
 interface IDetailedTree {
   stageType: TMagazinePart;
@@ -17,9 +19,8 @@ interface IDetailedTree {
 
 const DetailedTree = ({
   stageType,
-  images,
-  ...props
-}: IDetailedTree & BoxProps) => {
+  images
+}: IDetailedTree & HTMLAttributes<HTMLDivElement>) => {
   const backgroundColor = useColorModeValue('#f0e7db', '#202023');
   const hoverBackgroundColor = useColorModeValue('#202023', '#f0e7db');
 
@@ -30,8 +31,7 @@ const DetailedTree = ({
 
   return (
     <AnimatePresence mode="popLayout">
-      <Box
-        as={motion.div}
+      <motion.div
         initial={{ x: 0, y: -20, opacity: 0 }}
         animate={{
           x: 0,
@@ -52,46 +52,33 @@ const DetailedTree = ({
             duration: 0.2
           }
         }}
-        cursor="pointer"
-        display={'flex'}
-        flexDir="column"
-        alignItems="center"
-        justifyContent="center"
-        pb={typeof images[0] === 'object' ? 10 : 5}
-        border={'1px'}
-        borderColor={borderColor}
-        borderRadius={'lg'}
-        py={10}
-        mb={'4'}
-        {...props}
+        className={classJoin([
+          'cursor-pointer flex flex-col items-center justify-center border-2 rounded-lg py-10 mb-4',
+          typeof images[0] === 'object' ? 'pb-10' : 'pb-5'
+        ])}
+        style={{
+          borderColor: borderColor
+        }}
       >
-        <Container>
+        <div>
           <Description
-            textAlign="center"
-            fontSize="lg"
-            pb={3}
-            colors={{
-              hovered: 'black'
-            }}
+            extraClassName="text-center text-lg pb-3"
             description={firstCapitalize(stageType)}
           />
-        </Container>
-        <Box
-          w="100%"
-          display="flex"
-          alignItems="center"
-          justifyContent="space-around"
-        >
-          {stageType === 'intermediate' && <Box />}
+        </div>
+        <div className="w-full flex items-center justify-around">
+          {stageType === 'intermediate' && <div />}
 
           {images.map((value, index) => {
             if (typeof value === 'object') {
               return (
-                <Box
+                <div
                   key={index}
-                  position={'relative'}
-                  width={ImageWidth}
-                  height={ImageHeight}
+                  className="relative"
+                  style={{
+                    width: ImageWidth,
+                    height: ImageHeight
+                  }}
                 >
                   {value.map((value, idx) => {
                     const isOdd = idx % 2 !== 0;
@@ -110,7 +97,7 @@ const DetailedTree = ({
                       />
                     );
                   })}
-                </Box>
+                </div>
               );
             } else {
               return (
@@ -124,9 +111,9 @@ const DetailedTree = ({
             }
           })}
 
-          {stageType === 'intermediate' && <Box />}
-        </Box>
-      </Box>
+          {stageType === 'intermediate' && <div />}
+        </div>
+      </motion.div>
     </AnimatePresence>
   );
 };

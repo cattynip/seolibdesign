@@ -7,7 +7,7 @@ const HolidayData: IProjectData<IPostData> = {
     '`Holiday House Project` is to render a 3D model and make the model with real snacks. Unfortunately, I did not do well since I thought and planned with ignoring the concept of this project.',
   shortDescription:
     'The project to render a 3D model and make it with real materials.',
-  link: '/house',
+  link: '/8/house',
   iconType: 'house',
   finished: true,
   data: {
