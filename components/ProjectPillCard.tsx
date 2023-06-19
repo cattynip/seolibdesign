@@ -36,7 +36,7 @@ const ProjectPillCard = ({
             opacity: 1,
             x: 0,
             filter: 'blur(0px)',
-            transition: { delay: 3, type: 'spring', bounce: 0.2 }
+            transition: { delay: 1, type: 'spring', bounce: 0.2 }
           }}
           whileHover={
             isAvailable
