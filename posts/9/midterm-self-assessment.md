@@ -1,6 +1,5 @@
 ---
 title: Midterm Self Assessment
-route: midterm-self-assessment
 description: MIDTERM!!! THE MOST EXCITING.
 period: 4
 ---

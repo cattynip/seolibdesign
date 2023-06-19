@@ -1,6 +1,5 @@
 ---
 title: WebQuest
-route: webquest
 description: I found a lot of examples of perspectives on the three websites. Throughout this activity, I could have defined what perspectives are, and what the characteristics of them are.
 period: 2
 ---

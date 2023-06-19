@@ -1,6 +1,5 @@
 ---
 title: Linear Perspective
-route: linear-perspective
 description: In this activity, I answered the questions provided by Mr. Gun about the linear perspective in the painting. The name of the painting that I have interpreted was The Persistence of Memory.
 period: 1
 ---

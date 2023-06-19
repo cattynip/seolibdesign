@@ -1,6 +1,5 @@
 ---
 title: Cube Design
-route: cube-design
 description: I designed a cube that will be hung by a yarn. The purpose of this activity was to tell a story about family or tradition(I choose the tradition in Bodwell) and use the perspective and real tectiles.
 period: 3
 ---
