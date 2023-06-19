@@ -64,16 +64,10 @@ const Header = () => {
                 text="Home"
               />
               <HeaderLinkItem
-                href={'/8'}
+                href={'/grades'}
                 pathName={router.pathname}
                 icon="number8"
-                text={'Grade 8'}
-              />
-              <HeaderLinkItem
-                href={'/9'}
-                pathName={router.pathname}
-                icon="number9"
-                text={'Grade 9'}
+                text={'Grades'}
               />
               <HeaderLinkItem
                 href="https://github.com/cattynip/seolibdesign"
@@ -126,22 +120,16 @@ const Header = () => {
                     index={1}
                   />
                   <HeaderMenuItem
-                    href="/8"
+                    href="/grades"
                     iconType="number8"
-                    text="Grade 8"
+                    text="Grades"
                     index={2}
-                  />
-                  <HeaderMenuItem
-                    href="/9"
-                    iconType="number9"
-                    text="Grade 9"
-                    index={3}
                   />
                   <HeaderMenuItem
                     href="https://github.com/cattynip/seolibdesign"
                     iconType="github"
                     text="GitHub"
-                    index={5}
+                    index={3}
                   />
                 </MenuList>
               </Menu>
