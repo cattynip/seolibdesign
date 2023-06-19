@@ -45,7 +45,7 @@ interface GradesPath {
 }
 
 export const getStaticProps: GetStaticProps = () => {
-  const grades = readdirSync('./posts');
+  const grades = readdirSync('./posts', 'utf-8');
   const contents: GradeInfo[] = [];
 
   for (let i = 0; i < grades.length; i++) {
