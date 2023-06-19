@@ -35,7 +35,7 @@ const Home: NextPage = () => {
             will be working hard on the Design assignments and projects to be
             improved much better as a level of design.
           </p>
-          <div>
+          <div className="m-auto">
             <motion.img
               initial={{
                 scale: 1,

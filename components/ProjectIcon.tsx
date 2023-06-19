@@ -8,6 +8,7 @@ import {
 } from 'react-icons/bs';
 import { TbCircle8, TbCircle9 } from 'react-icons/tb';
 
+type TGrades = `number${string}`;
 export type TIconType =
   | 'home'
   | 'magazine'
@@ -17,8 +18,7 @@ export type TIconType =
   | 'leftArrow'
   | 'rightArrow'
   | 'perspectives'
-  | 'number8'
-  | 'number9';
+  | TGrades;
 
 interface IProjectIcon {
   iconType: TIconType;
